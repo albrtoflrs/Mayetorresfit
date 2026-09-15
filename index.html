@@ -188,6 +188,7 @@
 
       </div>
     </header>
+
     <!-- MAIN WRAPPER -->
     <main class="w-full pt-20 bg-surface flex-grow">
       <div class="flex flex-col w-full text-on-surface overflow-x-hidden">
@@ -284,7 +285,6 @@
 
           </div>
         </section>
-
         <!-- 2. STATEMENT EDITORIAL -->
         <section class="w-full py-16 px-margin-mobile lg:px-margin bg-surface-container-lowest relative">
           <div class="max-w-5xl mx-auto">
@@ -306,9 +306,8 @@
             </div>
           </div>
         </section>
-        <!-- --------------------------------------------------- -->
-        <!-- 3. PRESENTACIÓN: SOBRE MÍ                           -->
-        <!-- --------------------------------------------------- -->
+
+        <!-- 3. PRESENTACIÓN: SOBRE MÍ -->
         <section id="sobre-mi" class="w-full py-24 px-margin-mobile lg:px-margin max-w-7xl mx-auto relative">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
@@ -392,9 +391,7 @@
           </div>
         </section>
 
-        <!-- --------------------------------------------------- -->
-        <!-- 4. SECCIÓN MI MÉTODO                                -->
-        <!-- --------------------------------------------------- -->
+        <!-- 4. SECCIÓN MI MÉTODO -->
         <section class="w-full py-24 px-margin-mobile lg:px-margin max-w-7xl mx-auto relative" id="metodo">
           <div class="flex flex-col items-center text-center max-w-3xl mx-auto gap-space-sm mb-16">
             <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-secondary-container/40 text-primary font-label-caps text-label-caps uppercase tracking-widest">
@@ -507,9 +504,7 @@
             </div>
           </div>
         </section>
-        <!-- --------------------------------------------------- -->
-        <!-- 5. SECCIÓN PAQUETES Y PRODUCTOS                     -->
-        <!-- --------------------------------------------------- -->
+        <!-- 5. SECCIÓN PAQUETES Y PRODUCTOS -->
         <section id="paquetes" class="w-full py-24 px-margin-mobile lg:px-margin max-w-7xl mx-auto relative">
           <div class="flex flex-col items-center text-center max-w-3xl mx-auto gap-space-sm mb-16">
             <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-secondary-container/40 text-primary font-label-caps text-label-caps uppercase tracking-widest">
@@ -656,9 +651,8 @@
 
           </div>
         </section>
-        <!-- --------------------------------------------------- -->
-        <!-- 6. SECCIÓN TESTIMONIOS                              -->
-        <!-- --------------------------------------------------- -->
+
+        <!-- 6. SECCIÓN TESTIMONIOS -->
         <section id="testimonios" class="w-full py-24 px-margin-mobile lg:px-margin max-w-7xl mx-auto relative">
           <!-- Auras ambientales -->
           <div class="absolute top-1/2 -left-20 w-80 h-80 bg-primary/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
@@ -920,6 +914,7 @@
 
           </div>
         </section>
+
         <!-- --------------------------------------------------- -->
         <!-- 8. MANIFIESTO: MÁS QUE UN PLAN                      -->
         <!-- --------------------------------------------------- -->
@@ -1022,13 +1017,14 @@
           </p>
         </div>
 
-        <!-- Enlace de Instagram Oficial -->
+        <!-- Enlaces a Redes -->
         <div class="flex items-center gap-space-lg">
           <a class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="https://www.instagram.com/mayetorresfit?stkn=bzJ4ZXh0Y2d2NGNi" rel="noopener noreferrer" target="_blank">
             <span class="material-symbols-outlined">photo_camera</span>
             <span>Instagram</span>
           </a>
-          <a class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="https://wa.me/qr/O2VRKPZU42OFO1" rel="noopener noreferrer" target="_blank">
+          <!-- Enlace de WhatsApp directo con el número -->
+          <a class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="https://wa.me/51923659476" rel="noopener noreferrer" target="_blank">
             <span class="material-symbols-outlined">chat</span>
             <span>WhatsApp</span>
           </a>
@@ -1254,14 +1250,14 @@
     </div>
   </div>
   <!-- ======================================================= -->
-  <!-- SCRIPTS INTERACTIVOS (JAVASCRIPT) - BLOQUE A            -->
+  <!-- SCRIPTS INTERACTIVOS (JAVASCRIPT)                       -->
   <!-- ======================================================= -->
   <script>
     // =======================================================
     // 1. CONFIGURACIÓN GENERAL & IDENTIFICADORES
     // =======================================================
     const GOOGLE_CLIENT_ID = "874423038065-p6t7bcndcat2q0v73tej8t2mn92hj6ho.apps.googleusercontent.com";
-    const WA_QR_LINK = "https://wa.me/qr/O2VRKPZU42OFO1";
+    const WA_PHONE = "51923659476";
 
     const WHATSAPP_MESSAGES = {
       "Entrenamiento Online": 
@@ -1340,9 +1336,10 @@
         `¡Hola Maye! Quiero comenzar con el plan *${selectedPackage.name}* (${selectedPackage.price}). ¿Cuáles son los siguientes pasos?`;
 
       const encodedText = encodeURIComponent(customMessage);
-      const finalWhatsappUrl = `${WA_QR_LINK}?text=${encodedText}`;
+      // Enlace universal directo que rellena el mensaje en la app de WhatsApp
+      const finalWhatsappUrl = `https://api.whatsapp.com/send?phone=${WA_PHONE}&text=${encodedText}`;
 
-      window.open(finalWhatsappUrl, '_blank');
+      window.location.href = finalWhatsappUrl;
     }
 
     // =======================================================
@@ -1394,7 +1391,6 @@
           });
         }
 
-        // Abre la ventana oficial de selección de cuenta de Google
         googleTokenClient.requestAccessToken({ prompt: 'select_account' });
 
       } catch (err) {
@@ -1402,6 +1398,7 @@
         alert("Error al conectar con Google: " + err.message);
       }
     }
+
     // =======================================================
     // 4. CONTROL DEL MODAL DE AUTENTICACIÓN (LOGIN & REGISTRO)
     // =======================================================
