@@ -11,8 +11,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Montserrat:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
   
-  <!-- Script Oficial de Google reCAPTCHA v2 -->
+  <!-- SDK Oficial de Google reCAPTCHA v2 -->
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+  <!-- SDK Oficial de Google Identity Services (OAuth) -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
 
   <style>
     @layer base {
@@ -35,7 +38,7 @@
     }
   </style>
 
-  <!-- Tailwind CSS CDN con la paleta original intacta -->
+  <!-- Tailwind CSS CDN con la paleta de colores oficial -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script id="tailwind-config">
     tailwind.config = {
@@ -155,7 +158,7 @@
         
         <!-- Logo -->
         <a href="#inicio" class="flex items-center gap-space-md group">
-          <img alt="Maye Torres Fit Logo" class="w-11 h-11 rounded-full object-cover shadow-[0_0_14px_rgba(232,104,138,0.3)] group-hover:scale-105 transition-transform" src="https://lh3.googleusercontent.com/aida/AEtjO1V29JSdWpvTqBCTnSLxInpTC0OTFm3Bf0sIqM3wkgrnFU6kfECMd7qetGIzRgBo20gZKKp7RWeAnQ-jedR1KAotSmbyGfw5BJZo8doOulJyIS-6-61jAZaEqZ6v0ekyVQPGkzKdVQf8gekpZySIF3t0cjDOmLTRzRXZK7AJX5GmO8N87q127DkqHbI2rbyNEZbLp6-0Im9MIakTCByK4ddfrR1EeVIlmiX2DSE6BLGeNbYQsy2I_z_dtPZAGquOg3b1mjX5LDWdmOA"/>
+          <img alt="Maye Torres Fit Logo" class="w-11 h-11 rounded-full object-cover shadow-[0_0_14px_rgba(232,104,138,0.3)] group-hover:scale-105 transition-transform" src="maye-studio.jpg" onerror="this.src='https://lh3.googleusercontent.com/aida/AEtjO1V29JSdWpvTqBCTnSLxInpTC0OTFm3Bf0sIqM3wkgrnFU6kfECMd7qetGIzRgBo20gZKKp7RWeAnQ-jedR1KAotSmbyGfw5BJZo8doOulJyIS-6-61jAZaEqZ6v0ekyVQPGkzKdVQf8gekpZySIF3t0cjDOmLTRzRXZK7AJX5GmO8N87q127DkqHbI2rbyNEZbLp6-0Im9MIakTCByK4ddfrR1EeVIlmiX2DSE6BLGeNbYQsy2I_z_dtPZAGquOg3b1mjX5LDWdmOA'"/>
           <span class="font-headline-sm text-headline-sm uppercase tracking-wider text-on-surface">
             Maye Torres <span class="text-primary">Fit</span>
           </span>
@@ -175,7 +178,7 @@
         <div class="flex items-center gap-2.5 sm:gap-space-md">
           <button type="button" id="btn-open-login" class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-full border border-outline-variant/50 hover:border-primary text-on-surface hover:text-primary font-label-md text-label-sm font-medium transition-all bg-surface-container-low/60 hover:bg-surface-container">
             <span class="material-symbols-outlined text-lg">account_circle</span>
-            <span class="hidden sm:inline">Área Clientes</span>
+            <span id="btn-login-text" class="hidden sm:inline">Área Clientes</span>
           </button>
 
           <a class="inline-flex items-center justify-center px-4 sm:px-space-lg py-2 sm:py-space-sm rounded-full bg-primary-container text-on-primary-container font-headline-sm text-label-sm sm:text-label-md tracking-wide shadow-[0_4px_20px_rgba(232,104,138,0.3)] hover:brightness-110 transition-all" href="#paquetes">
@@ -185,7 +188,6 @@
 
       </div>
     </header>
-
     <!-- MAIN WRAPPER -->
     <main class="w-full pt-20 bg-surface flex-grow">
       <div class="flex flex-col w-full text-on-surface overflow-x-hidden">
@@ -253,17 +255,17 @@
               </div>
             </div>
 
-            <!-- Foto Editorial -->
+            <!-- Foto Hero con tu Foto Oficial NPC en tarima -->
             <div class="lg:col-span-5 flex justify-center relative">
               <div class="relative w-full max-w-md lg:max-w-none">
                 <div class="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent rounded-3xl blur-2xl -z-10 scale-95 transform"></div>
                 
                 <div class="relative rounded-3xl overflow-hidden bg-surface-container shadow-2xl group border border-outline-variant/20">
-                  <img alt="Maye Torres en tarima de competición Bikini Fitness" class="w-full h-[580px] sm:h-[640px] object-cover object-top filter contrast-[1.04] group-hover:scale-105 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLO0f9aXCfIYVJ9KleOM3QUAwPqX3TeKHUUMQk2uXrcuzcyjZ39mJAoxKOAsp_PmyBJ3Fn1JLTEpGiUTtdawnHE90EMGUpvIorWBsSO9AmY8XkkRY02H-aOM2htZeTam9qd5MwHKzuinGjcycz1J8BPHgnjMQs2R8DgdXHsm2rAZa6W2Lq6m9Oh5ir43o1ozQagRE2A8dyib3LOcNJrqdXjIhqp57H-ZxxLQHuktVuwMxr0rwZJMthQ_60e2wwaOvKVwM"/>
+                  <img alt="Maye Torres Atleta Bikini NPC con medalla" class="w-full h-[580px] sm:h-[640px] object-cover object-top filter contrast-[1.04] group-hover:scale-105 transition-transform duration-700 ease-out" src="maye-npc.jpg" onerror="this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuCLO0f9aXCfIYVJ9KleOM3QUAwPqX3TeKHUUMQk2uXrcuzcyjZ39mJAoxKOAsp_PmyBJ3Fn1JLTEpGiUTtdawnHE90EMGUpvIorWBsSO9AmY8XkkRY02H-aOM2htZeTam9qd5MwHKzuinGjcycz1J8BPHgnjMQs2R8DgdXHsm2rAZa6W2Lq6m9Oh5ir43o1ozQagRE2A8dyib3LOcNJrqdXjIhqp57H-ZxxLQHuktVuwMxr0rwZJMthQ_60e2wwaOvKVwM'"/>
                   <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/15 to-transparent"></div>
                   
                   <div class="absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-lowest/85 backdrop-blur-md shadow-lg border border-outline-variant/20">
-                    <img alt="Maye Torres Avatar" class="w-5 h-5 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAD2itCx4gjJ-jjff40s_AQek4v69dked8M_U3eWXUaRyTn4uyA7b1EmnZ1CsSebTDv8yLYi9dZojjC9Mucd-n6p5aoyg2BsaE2tfdKGy_SjqNrMtDNCN50lp_jq7sLA5DpD1wnDDaSP8iHnsH2OaQEk5a-etZIo0IDl2Q2n-6QdRsZKfNaHJXQ0_9-e04fUUdK8U0KEj-BPByj8P5QVXWZcjY7LML03U-4rYnqIH9XVhPbZLjyImrKz1c5Bj3FwjvEO8"/>
+                    <span class="material-symbols-outlined text-primary text-sm">workspace_premium</span>
                     <span class="font-label-caps text-label-caps uppercase tracking-wider text-primary">NPC Bikini Athlete</span>
                   </div>
 
@@ -313,7 +315,7 @@
             <!-- Columna Izquierda: Imagen y Credenciales -->
             <div class="lg:col-span-5 flex flex-col gap-6">
               <div class="relative rounded-3xl overflow-hidden bg-surface-container shadow-2xl border border-outline-variant/20 group">
-                <img alt="Maye Torres entrenando" class="w-full h-[480px] object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAl6iM6_rVp74uc6M2v0gtL1cVSADklPLzLRakTReqSedtrBYILLMedDqECxxwZq0oxn2N992X887diCE0qVESC3LiZtG4Bwr2VST3XMKBzrRuJ0pTjf82lNIVDI8EL1HyTKLnuziYJCWMShIl3_of631mA0oE6jGWxDX8OEUk0yp5bm9Aa9mFIaqK-Qa4I8bfpZq-KslJmx8fFa4Qk5hyUJY5eUhzPskz8RxRKvXHu37-u5K92fdaXbyk_nMWvsuto-14"/>
+                <img alt="Maye Torres entrenadora personal" class="w-full h-[480px] object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out" src="maye-studio.jpg" onerror="this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuAl6iM6_rVp74uc6M2v0gtL1cVSADklPLzLRakTReqSedtrBYILLMedDqECxxwZq0oxn2N992X887diCE0qVESC3LiZtG4Bwr2VST3XMKBzrRuJ0pTjf82lNIVDI8EL1HyTKLnuziYJCWMShIl3_of631mA0oE6jGWxDX8OEUk0yp5bm9Aa9mFIaqK-Qa4I8bfpZq-KslJmx8fFa4Qk5hyUJY5eUhzPskz8RxRKvXHu37-u5K92fdaXbyk_nMWvsuto-14'"/>
                 <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
                 
                 <div class="absolute bottom-5 inset-x-5 p-4 rounded-2xl bg-surface-container-low/90 backdrop-blur-md border border-outline-variant/20">
@@ -505,7 +507,6 @@
             </div>
           </div>
         </section>
-
         <!-- --------------------------------------------------- -->
         <!-- 5. SECCIÓN PAQUETES Y PRODUCTOS                     -->
         <!-- --------------------------------------------------- -->
@@ -561,7 +562,7 @@
                 </div>
               </div>
 
-              <!-- Botón que navega a pantalla de Checkout -->
+              <!-- Botón Checkout -->
               <button type="button" onclick="navigateToCheckout('Entrenamiento Online', '60$')" class="mt-8 w-full py-4 rounded-full bg-surface-container-high hover:bg-primary-container text-on-surface hover:text-on-primary-container font-headline-sm text-sm font-semibold tracking-wide transition-all shadow-sm">
                 Elegir este plan
               </button>
@@ -606,7 +607,7 @@
                 </div>
               </div>
 
-              <!-- Botón que navega a pantalla de Checkout -->
+              <!-- Botón Checkout -->
               <button type="button" onclick="navigateToCheckout('Nutrición + Entrenamiento', '85$')" class="mt-8 w-full py-4 rounded-full bg-primary-container hover:brightness-110 text-on-primary-container font-headline-sm text-sm font-semibold tracking-wide transition-all shadow-[0_4px_20px_rgba(232,104,138,0.35)]">
                 Elegir este plan
               </button>
@@ -647,7 +648,7 @@
                 </div>
               </div>
 
-              <!-- Botón que navega a pantalla de Checkout -->
+              <!-- Botón Checkout -->
               <button type="button" onclick="navigateToCheckout('Entrenamiento Presencial', '200$')" class="mt-8 w-full py-4 rounded-full bg-surface-container-high hover:bg-primary-container text-on-surface hover:text-on-primary-container font-headline-sm text-sm font-semibold tracking-wide transition-all shadow-sm">
                 Elegir este plan
               </button>
@@ -659,7 +660,7 @@
         <!-- 6. SECCIÓN TESTIMONIOS                              -->
         <!-- --------------------------------------------------- -->
         <section id="testimonios" class="w-full py-24 px-margin-mobile lg:px-margin max-w-7xl mx-auto relative">
-          <!-- Auras de luz ambientales -->
+          <!-- Auras ambientales -->
           <div class="absolute top-1/2 -left-20 w-80 h-80 bg-primary/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
           <div class="absolute bottom-10 right-0 w-96 h-96 bg-secondary-container/15 rounded-full blur-[100px] pointer-events-none -z-10"></div>
 
@@ -686,7 +687,6 @@
             <!-- Testimonio 01 -->
             <div class="flex flex-col justify-between p-8 rounded-3xl bg-surface-container-low border border-outline-variant/20 shadow-lg hover:border-primary/40 transition-all duration-300">
               <div class="flex flex-col gap-5">
-                <!-- 5 Estrellas -->
                 <div class="flex items-center gap-1 text-primary">
                   <span class="material-symbols-outlined text-lg">star</span>
                   <span class="material-symbols-outlined text-lg">star</span>
@@ -718,7 +718,6 @@
             <!-- Testimonio 02 -->
             <div class="flex flex-col justify-between p-8 rounded-3xl bg-surface-container-low border border-outline-variant/20 shadow-lg hover:border-primary/40 transition-all duration-300">
               <div class="flex flex-col gap-5">
-                <!-- 5 Estrellas -->
                 <div class="flex items-center gap-1 text-primary">
                   <span class="material-symbols-outlined text-lg">star</span>
                   <span class="material-symbols-outlined text-lg">star</span>
@@ -750,7 +749,6 @@
             <!-- Testimonio 03 -->
             <div class="flex flex-col justify-between p-8 rounded-3xl bg-surface-container-low border border-outline-variant/20 shadow-lg hover:border-primary/40 transition-all duration-300">
               <div class="flex flex-col gap-5">
-                <!-- 5 Estrellas -->
                 <div class="flex items-center gap-1 text-primary">
                   <span class="material-symbols-outlined text-lg">star</span>
                   <span class="material-symbols-outlined text-lg">star</span>
@@ -781,7 +779,7 @@
 
           </div>
 
-          <!-- Banner de Cierre: TU PROCESO TAMBIÉN PUEDE EMPEZAR AQUÍ -->
+          <!-- Banner: TU PROCESO TAMBIÉN PUEDE EMPEZAR AQUÍ -->
           <div class="mt-16 p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-surface-container-low via-surface-container to-surface-container-low border border-outline-variant/20 text-center flex flex-col items-center gap-4">
             <span class="font-label-caps text-label-caps uppercase tracking-widest text-primary font-bold">Tu momento es ahora</span>
             <h3 class="font-headline-lg text-2xl sm:text-3xl font-bold text-on-surface">
@@ -799,7 +797,6 @@
             </a>
           </div>
         </section>
-
         <!-- --------------------------------------------------- -->
         <!-- 7. SECCIÓN RESEÑAS Y COMENTARIOS                    -->
         <!-- --------------------------------------------------- -->
@@ -819,7 +816,7 @@
 
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
             
-            <!-- Columna Izquierda: Formulario para Dejar Comentario (5 Columnas) -->
+            <!-- Formulario de Reseña -->
             <div class="lg:col-span-5 p-8 rounded-3xl bg-surface-container-low border border-outline-variant/20 shadow-xl">
               <div class="flex items-center gap-3 mb-6">
                 <div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary">
@@ -857,22 +854,20 @@
                   <textarea id="review-text" rows="4" required placeholder="¿Cómo ha sido tu experiencia con las rutinas, la técnica y los resultados?" class="w-full bg-surface-container px-4 py-3 rounded-xl border border-outline-variant/40 focus:border-primary text-on-surface font-body-sm text-sm focus:outline-none transition-colors resize-none"></textarea>
                 </div>
 
-                <!-- Mensaje de confirmación -->
+                <!-- Mensaje de éxito -->
                 <div id="review-success" class="hidden p-3 rounded-xl bg-primary-container/20 border border-primary/40 text-primary text-xs text-center font-medium">
                   ¡Gracias por tu reseña! Ha sido enviada con éxito.
                 </div>
 
-                <!-- Botón Enviar -->
                 <button type="submit" class="w-full py-3.5 mt-2 rounded-xl bg-primary-container text-on-primary-container font-headline-sm text-sm font-semibold tracking-wide shadow-[0_4px_20px_rgba(232,104,138,0.3)] hover:brightness-110 transition-all">
                   Publicar comentario
                 </button>
               </form>
             </div>
 
-            <!-- Columna Derecha: Muro de Reseñas (7 Columnas) -->
+            <!-- Muro de Reseñas -->
             <div class="lg:col-span-7 flex flex-col gap-4" id="reviews-wall">
               
-              <!-- Reseña 1 -->
               <div class="p-6 rounded-2xl bg-surface-container-low border border-outline-variant/15 flex flex-col gap-3">
                 <div class="flex items-center justify-between">
                   <div class="flex items-center gap-3">
@@ -897,7 +892,6 @@
                 </p>
               </div>
 
-              <!-- Reseña 2 -->
               <div class="p-6 rounded-2xl bg-surface-container-low border border-outline-variant/15 flex flex-col gap-3">
                 <div class="flex items-center justify-between">
                   <div class="flex items-center gap-3">
@@ -951,9 +945,9 @@
                   </div>
                 </div>
 
-                <!-- Micro panel gráfico con credenciales -->
+                <!-- Panel con credenciales y foto de estudio -->
                 <div class="w-full lg:w-80 flex flex-col items-center text-center p-8 rounded-2xl bg-surface-container-lowest/80 backdrop-blur-md border border-outline-variant/20 shadow-xl">
-                  <img alt="Maye Torres Fit" class="w-24 h-24 rounded-full object-cover shadow-[0_0_24px_rgba(232,104,138,0.35)] mb-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAl6iM6_rVp74uc6M2v0gtL1cVSADklPLzLRakTReqSedtrBYILLMedDqECxxwZq0oxn2N992X887diCE0qVESC3LiZtG4Bwr2VST3XMKBzrRuJ0pTjf82lNIVDI8EL1HyTKLnuziYJCWMShIl3_of631mA0oE6jGWxDX8OEUk0yp5bm9Aa9mFIaqK-Qa4I8bfpZq-KslJmx8fFa4Qk5hyUJY5eUhzPskz8RxRKvXHu37-u5K92fdaXbyk_nMWvsuto-14"/>
+                  <img alt="Maye Torres Fit" class="w-24 h-24 rounded-full object-cover shadow-[0_0_24px_rgba(232,104,138,0.35)] mb-4" src="maye-studio.jpg" onerror="this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuAl6iM6_rVp74uc6M2v0gtL1cVSADklPLzLRakTReqSedtrBYILLMedDqECxxwZq0oxn2N992X887diCE0qVESC3LiZtG4Bwr2VST3XMKBzrRuJ0pTjf82lNIVDI8EL1HyTKLnuziYJCWMShIl3_of631mA0oE6jGWxDX8OEUk0yp5bm9Aa9mFIaqK-Qa4I8bfpZq-KslJmx8fFa4Qk5hyUJY5eUhzPskz8RxRKvXHu37-u5K92fdaXbyk_nMWvsuto-14'"/>
                   <span class="font-headline-sm text-headline-sm font-bold text-on-surface">Maye Torres</span>
                   <span class="font-label-sm text-label-sm text-primary mb-6">Atleta Bikini &amp; Head Coach</span>
                   
@@ -1020,7 +1014,7 @@
         
         <div class="flex flex-col items-center md:items-start gap-space-xs">
           <div class="flex items-center gap-space-sm">
-            <img alt="Maye Torres Fit Logo" class="w-9 h-9 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1V29JSdWpvTqBCTnSLxInpTC0OTFm3Bf0sIqM3wkgrnFU6kfECMd7qetGIzRgBo20gZKKp7RWeAnQ-jedR1KAotSmbyGfw5BJZo8doOulJyIS-6-61jAZaEqZ6v0ekyVQPGkzKdVQf8gekpZySIF3t0cjDOmLTRzRXZK7AJX5GmO8N87q127DkqHbI2rbyNEZbLp6-0Im9MIakTCByK4ddfrR1EeVIlmiX2DSE6BLGeNbYQsy2I_z_dtPZAGquOg3b1mjX5LDWdmOA"/>
+            <img alt="Maye Torres Fit Logo" class="w-9 h-9 rounded-full object-cover" src="maye-studio.jpg" onerror="this.src='https://lh3.googleusercontent.com/aida/AEtjO1V29JSdWpvTqBCTnSLxInpTC0OTFm3Bf0sIqM3wkgrnFU6kfECMd7qetGIzRgBo20gZKKp7RWeAnQ-jedR1KAotSmbyGfw5BJZo8doOulJyIS-6-61jAZaEqZ6v0ekyVQPGkzKdVQf8gekpZySIF3t0cjDOmLTRzRXZK7AJX5GmO8N87q127DkqHbI2rbyNEZbLp6-0Im9MIakTCByK4ddfrR1EeVIlmiX2DSE6BLGeNbYQsy2I_z_dtPZAGquOg3b1mjX5LDWdmOA'"/>
             <span class="font-headline-sm text-headline-sm uppercase tracking-wider text-on-surface">Maye Torres Fit</span>
           </div>
           <p class="font-body-sm text-body-sm text-on-surface-variant text-center md:text-left">
@@ -1034,7 +1028,7 @@
             <span class="material-symbols-outlined">photo_camera</span>
             <span>Instagram</span>
           </a>
-          <a class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="https://whatsapp.com" rel="noopener noreferrer" target="_blank">
+          <a class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="https://wa.me/qr/O2VRKPZU42OFO1" rel="noopener noreferrer" target="_blank">
             <span class="material-symbols-outlined">chat</span>
             <span>WhatsApp</span>
           </a>
@@ -1070,7 +1064,7 @@
         </button>
 
         <div class="flex items-center gap-2">
-          <img alt="Maye Torres Fit" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1V29JSdWpvTqBCTnSLxInpTC0OTFm3Bf0sIqM3wkgrnFU6kfECMd7qetGIzRgBo20gZKKp7RWeAnQ-jedR1KAotSmbyGfw5BJZo8doOulJyIS-6-61jAZaEqZ6v0ekyVQPGkzKdVQf8gekpZySIF3t0cjDOmLTRzRXZK7AJX5GmO8N87q127DkqHbI2rbyNEZbLp6-0Im9MIakTCByK4ddfrR1EeVIlmiX2DSE6BLGeNbYQsy2I_z_dtPZAGquOg3b1mjX5LDWdmOA"/>
+          <img alt="Maye Torres Fit" class="w-8 h-8 rounded-full object-cover" src="maye-studio.jpg" onerror="this.src='https://lh3.googleusercontent.com/aida/AEtjO1V29JSdWpvTqBCTnSLxInpTC0OTFm3Bf0sIqM3wkgrnFU6kfECMd7qetGIzRgBo20gZKKp7RWeAnQ-jedR1KAotSmbyGfw5BJZo8doOulJyIS-6-61jAZaEqZ6v0ekyVQPGkzKdVQf8gekpZySIF3t0cjDOmLTRzRXZK7AJX5GmO8N87q127DkqHbI2rbyNEZbLp6-0Im9MIakTCByK4ddfrR1EeVIlmiX2DSE6BLGeNbYQsy2I_z_dtPZAGquOg3b1mjX5LDWdmOA'"/>
           <span class="font-headline-sm text-sm uppercase tracking-wider text-on-surface">Maye Torres <span class="text-primary">Fit</span></span>
         </div>
       </div>
@@ -1182,8 +1176,8 @@
       </div>
 
       <div class="flex flex-col gap-3 mb-6">
-        <!-- Google -->
-        <button type="button" class="w-full flex items-center justify-center gap-3 py-3 px-4 rounded-xl bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 text-on-surface font-label-md text-label-md font-medium transition-all">
+        <!-- Botón Activo de Google -->
+        <button type="button" id="btn-google-login" onclick="iniciarSesionGoogle()" class="w-full flex items-center justify-center gap-3 py-3 px-4 rounded-xl bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 text-on-surface font-label-md text-label-md font-medium transition-all cursor-pointer">
           <svg class="w-5 h-5" viewBox="0 0 24 24">
             <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
             <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
@@ -1193,7 +1187,7 @@
           <span>Continuar con Google</span>
         </button>
 
-        <!-- Apple -->
+        <!-- Botón de Apple -->
         <button type="button" class="w-full flex items-center justify-center gap-3 py-3 px-4 rounded-xl bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 text-on-surface font-label-md text-label-md font-medium transition-all">
           <svg class="w-5 h-5 fill-current" viewBox="0 0 170 170">
             <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.7-3.04-7.6-7.7-11.7-13.98-6.19-9.58-11.07-20.73-14.65-33.45-3.58-12.72-5.37-24.96-5.37-36.73 0-16.14 4.04-29.62 12.11-40.45 8.08-10.83 18.29-16.36 30.64-16.59 4.35 0 9.27 1.15 14.75 3.44 5.48 2.29 9.38 3.5 11.7 3.63 1.96-.13 5.98-1.42 12.06-3.87 6.08-2.45 11.22-3.52 15.42-3.21 11.74.67 21.36 4.9 28.86 12.69-10.43 6.31-15.54 15.1-15.33 26.37.21 8.94 3.73 16.48 10.56 22.61 6.83 6.13 14.89 9.68 24.18 10.65-2.27 7.02-5.1 14.07-8.49 21.14zM119.22 33.7c0-7.23 2.66-13.99 7.99-20.28 5.33-6.29 11.83-10.38 19.5-12.27.67 1.34 1.01 2.76 1.01 4.26 0 7.37-2.73 14.28-8.19 20.73-5.46 6.45-12.06 10.46-19.8 12.02-.34-1.45-.51-2.94-.51-4.46z"/>
@@ -1260,14 +1254,29 @@
     </div>
   </div>
   <!-- ======================================================= -->
-  <!-- SCRIPTS INTERACTIVOS (JAVASCRIPT)                       -->
+  <!-- SCRIPTS INTERACTIVOS (JAVASCRIPT) - BLOQUE A            -->
   <!-- ======================================================= -->
   <script>
     // =======================================================
-    // 1. CONFIGURACIÓN GENERAL & VARIABLES DE ESTADO
+    // 1. CONFIGURACIÓN GENERAL & IDENTIFICADORES
     // =======================================================
-    // Reemplaza con tu número de WhatsApp real (con código de país sin '+')
-    const WHATSAPP_PHONE = "584120000000";
+    // Tu Client ID oficial de Google Cloud configurado
+    const GOOGLE_CLIENT_ID = "874423038065-p6t7bcndcat2q0v73tej8t2mn92hj6ho.apps.googleusercontent.com";
+
+    // Tu enlace oficial de WhatsApp QR
+    const WA_QR_LINK = "https://wa.me/qr/O2VRKPZU42OFO1";
+
+    // Mensajes preconfigurados según el plan seleccionado
+    const WHATSAPP_MESSAGES = {
+      "Entrenamiento Online": 
+        "¡Hola Maye! Acabo de validar mi solicitud en tu web. Quiero comenzar con el plan *Entrenamiento Online (60$/mes)* para estructurar mis rutinas, progresar en mis cargas y mejorar mi técnica. ¿Cuáles son los siguientes pasos?",
+      
+      "Nutrición + Entrenamiento": 
+        "¡Hola Maye! Acabo de validar mi solicitud en la web y elegí el plan *Nutrición + Entrenamiento (85$/mes)*. Busco una transformación integral de mi composición corporal dentro y fuera del gym. ¿Cómo coordinamos la evaluación inicial?",
+      
+      "Entrenamiento Presencial": 
+        "¡Hola Maye! Acabo de validar mi solicitud en tu web para el plan *Entrenamiento Presencial (200$/mes)*. Quiero acompañamiento 1:1 en cada sesión para aprender técnica biomecánica en tiempo real. ¿Qué horarios tienes disponibles?"
+    };
 
     let selectedPackage = { 
       name: "Entrenamiento Online", 
@@ -1285,7 +1294,7 @@
     const checkoutPkgPrice = document.getElementById('checkout-pkg-price');
     const checkoutRecaptchaError = document.getElementById('checkout-recaptcha-error');
 
-    // Cambiar a la vista de Checkout sin ventanas flotantes bruscas
+    // Cambiar de la web principal a la pantalla de checkout
     function navigateToCheckout(packageName, packagePrice) {
       selectedPackage = { 
         name: packageName, 
@@ -1295,7 +1304,7 @@
       if (checkoutPkgName) checkoutPkgName.textContent = packageName;
       if (checkoutPkgPrice) checkoutPkgPrice.textContent = packagePrice;
 
-      // Resetear estado del reCAPTCHA
+      // Resetear estado de reCAPTCHA
       isRecaptchaVerified = false;
       if (checkoutRecaptchaError) {
         checkoutRecaptchaError.classList.add('hidden');
@@ -1304,16 +1313,15 @@
         try {
           grecaptcha.reset();
         } catch (err) {
-          console.warn("reCAPTCHA aún no inicializado");
+          console.warn("reCAPTCHA preparándose");
         }
       }
 
-      // Ocultar web principal y mostrar pantalla de checkout
+      // Ocultar página principal y mostrar checkout de pantalla completa
       mainView.classList.add('hidden');
       checkoutView.classList.remove('hidden');
       checkoutView.classList.add('flex');
 
-      // Desplazar suavemente hacia la parte superior
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -1338,7 +1346,7 @@
       isRecaptchaVerified = false;
     }
 
-    // Proceder y abrir WhatsApp con mensaje automático estructurado
+    // Proceder al WhatsApp oficial con el mensaje del plan
     function proceedToWhatsapp() {
       if (!isRecaptchaVerified) {
         if (checkoutRecaptchaError) {
@@ -1351,15 +1359,75 @@
         checkoutRecaptchaError.classList.add('hidden');
       }
 
-      const textMessage = `¡Hola Maye! Acabo de validar mi solicitud en tu página web. Me interesa comenzar con el plan: *${selectedPackage.name}* (${selectedPackage.price}). ¿Podrías indicarme los siguientes pasos y métodos de pago para iniciar mi proceso?`;
-      const encodedText = encodeURIComponent(textMessage);
-      const whatsappUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodedText}`;
+      const customMessage = WHATSAPP_MESSAGES[selectedPackage.name] || 
+        `¡Hola Maye! Quiero comenzar con el plan *${selectedPackage.name}* (${selectedPackage.price}). ¿Cuáles son los siguientes pasos?`;
 
-      window.open(whatsappUrl, '_blank');
+      const encodedText = encodeURIComponent(customMessage);
+      const finalWhatsappUrl = `${WA_QR_LINK}?text=${encodedText}`;
+
+      window.open(finalWhatsappUrl, '_blank');
     }
 
     // =======================================================
-    // 3. MODAL DE AUTENTICACIÓN (LOGIN & REGISTRO)
+    // 3. INICIO DE SESIÓN CON GOOGLE (OAUTH)
+    // =======================================================
+    function iniciarSesionGoogle() {
+      if (typeof google === 'undefined' || !google.accounts) {
+        alert("Cargando servicios de Google, por favor espera un instante e intenta nuevamente.");
+        return;
+      }
+
+      // Inicializar el cliente oficial de Google
+      google.accounts.id.initialize({
+        client_id: GOOGLE_CLIENT_ID,
+        callback: manejarRespuestaGoogle,
+        auto_select: false,
+        cancel_on_tap_outside: true
+      });
+
+      // Mostrar el selector emergente de cuentas de Google
+      google.accounts.id.prompt((notification) => {
+        if (notification.isNotDisplayed() || notification.isSkippedMomentum()) {
+          console.log("Selector en segundo plano o bloqueado por navegador móvil.");
+        }
+      });
+    }
+
+    // Procesar la credencial de Google recibida
+    function manejarRespuestaGoogle(response) {
+      try {
+        const jwtToken = response.credential;
+        const base64Url = jwtToken.split('.')[1];
+        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+          return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+
+        const userData = JSON.parse(jsonPayload);
+
+        console.log("Alumna autenticada con éxito:", {
+          nombre: userData.name,
+          email: userData.email,
+          avatar: userData.picture
+        });
+
+        alert(`¡Bienvenida ${userData.name}! Has iniciado sesión correctamente.`);
+        closeAuthModal();
+
+        // Actualizar el botón de la cabecera con la foto y nombre
+        const btnArea = document.getElementById('btn-open-login');
+        if (btnArea) {
+          btnArea.innerHTML = `
+            <img src="${userData.picture}" class="w-5 h-5 rounded-full object-cover shadow-sm">
+            <span class="hidden sm:inline font-semibold text-primary">${userData.given_name || userData.name}</span>
+          `;
+        }
+      } catch (error) {
+        console.error("Error al procesar el token de Google:", error);
+      }
+    }
+    // =======================================================
+    // 4. MODAL DE AUTENTICACIÓN (LOGIN & REGISTRO)
     // =======================================================
     const authModal = document.getElementById('auth-modal');
     const btnOpenLogin = document.getElementById('btn-open-login');
@@ -1399,7 +1467,6 @@
 
     function setAuthMode(mode) {
       if (mode === 'register') {
-        // Modo Registro
         tabRegister.className = "py-2 rounded-full font-label-md text-label-sm font-semibold transition-all bg-primary-container text-on-primary-container shadow-sm";
         tabLogin.className = "py-2 rounded-full font-label-md text-label-sm font-semibold transition-all text-on-surface-variant hover:text-on-surface";
         
@@ -1413,7 +1480,6 @@
         authModalSubtitle.textContent = "Regístrate para guardar tu proceso y recibir novedades";
         btnAuthSubmit.textContent = "Crear cuenta";
       } else {
-        // Modo Login
         tabLogin.className = "py-2 rounded-full font-label-md text-label-sm font-semibold transition-all bg-primary-container text-on-primary-container shadow-sm";
         tabRegister.className = "py-2 rounded-full font-label-md text-label-sm font-semibold transition-all text-on-surface-variant hover:text-on-surface";
 
@@ -1432,7 +1498,6 @@
     if (tabLogin) tabLogin.addEventListener('click', () => setAuthMode('login'));
     if (tabRegister) tabRegister.addEventListener('click', () => setAuthMode('register'));
 
-    // Mostrar / Ocultar contraseña
     function togglePasswordVisibility() {
       if (authPasswordInput.type === 'password') {
         authPasswordInput.type = 'text';
@@ -1443,7 +1508,6 @@
       }
     }
 
-    // Envío del formulario de autenticación (listo para conectar con tu backend)
     function handleAuthSubmit(event) {
       event.preventDefault();
       const email = document.getElementById('auth-email').value;
@@ -1451,22 +1515,22 @@
       const name = isRegister ? document.getElementById('reg-name').value : '';
       const acceptsMarketing = isRegister ? document.getElementById('reg-marketing').checked : false;
 
-      console.log("Datos de autenticación listos para el servidor:", {
+      console.log("Datos listos para base de datos/backend:", {
         action: isRegister ? "registro" : "login",
         name,
         email,
-        acceptsMarketing
+        marketing: acceptsMarketing
       });
 
       alert(isRegister 
-        ? `¡Cuenta creada con éxito para ${name}! Hemos guardado tu correo para novedades.` 
+        ? `¡Cuenta creada para ${name}! Registrado para novedades.` 
         : `¡Inicio de sesión exitoso!`);
       
       closeAuthModal();
     }
 
     // =======================================================
-    // 4. SISTEMA DE RESEÑAS Y CALIFICACIÓN CON ESTRELLAS
+    // 5. SISTEMA DE RESEÑAS Y CALIFICACIÓN CON ESTRELLAS
     // =======================================================
     const starBtns = document.querySelectorAll('.star-btn');
     const ratingLabel = document.getElementById('rating-label');
@@ -1543,7 +1607,7 @@
     }
 
     // =======================================================
-    // 5. EVENTOS GLOBALES DE TECLADO Y CLIC EXTERNO
+    // 6. TECLAS GLOBALES Y CLIC EXTERNO
     // =======================================================
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
