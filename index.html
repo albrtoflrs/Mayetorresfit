@@ -1028,11 +1028,10 @@
             <span class="material-symbols-outlined">photo_camera</span>
             <span>Instagram</span>
           </a>
-          <a class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="https://wa.me/51923659476" rel="noopener noreferrer" target="_blank">
-  <span class="material-symbols-outlined">chat</span>
-  <span>WhatsApp</span>
-</a>
-
+          <a class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="https://wa.me/qr/O2VRKPZU42OFO1" rel="noopener noreferrer" target="_blank">
+            <span class="material-symbols-outlined">chat</span>
+            <span>WhatsApp</span>
+          </a>
           <a class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="https://tiktok.com" rel="noopener noreferrer" target="_blank">
             <span class="material-symbols-outlined">play_circle</span>
             <span>TikTok</span>
@@ -1262,8 +1261,7 @@
     // 1. CONFIGURACIÓN GENERAL & IDENTIFICADORES
     // =======================================================
     const GOOGLE_CLIENT_ID = "874423038065-p6t7bcndcat2q0v73tej8t2mn92hj6ho.apps.googleusercontent.com";
-    const const WA_PHONE = "51923659476";
-
+    const WA_QR_LINK = "https://wa.me/qr/O2VRKPZU42OFO1";
 
     const WHATSAPP_MESSAGES = {
       "Entrenamiento Online": 
@@ -1342,8 +1340,7 @@
         `¡Hola Maye! Quiero comenzar con el plan *${selectedPackage.name}* (${selectedPackage.price}). ¿Cuáles son los siguientes pasos?`;
 
       const encodedText = encodeURIComponent(customMessage);
-const finalWhatsappUrl = `https://wa.me/${WA_PHONE}?text=${encodedText}`;
-
+      const finalWhatsappUrl = `${WA_QR_LINK}?text=${encodedText}`;
 
       window.open(finalWhatsappUrl, '_blank');
     }
