@@ -1253,20 +1253,16 @@
 
     </div>
   </div>
-  <!-- ======================================================= -->
+    <!-- ======================================================= -->
   <!-- SCRIPTS INTERACTIVOS (JAVASCRIPT) - BLOQUE A            -->
   <!-- ======================================================= -->
   <script>
     // =======================================================
     // 1. CONFIGURACIÓN GENERAL & IDENTIFICADORES
     // =======================================================
-    // Tu Client ID oficial de Google Cloud configurado
     const GOOGLE_CLIENT_ID = "874423038065-p6t7bcndcat2q0v73tej8t2mn92hj6ho.apps.googleusercontent.com";
-
-    // Tu enlace oficial de WhatsApp QR
     const WA_QR_LINK = "https://wa.me/qr/O2VRKPZU42OFO1";
 
-    // Mensajes preconfigurados según el plan seleccionado
     const WHATSAPP_MESSAGES = {
       "Entrenamiento Online": 
         "¡Hola Maye! Acabo de validar mi solicitud en tu web. Quiero comenzar con el plan *Entrenamiento Online (60$/mes)* para estructurar mis rutinas, progresar en mis cargas y mejorar mi técnica. ¿Cuáles son los siguientes pasos?",
@@ -1278,15 +1274,12 @@
         "¡Hola Maye! Acabo de validar mi solicitud en tu web para el plan *Entrenamiento Presencial (200$/mes)*. Quiero acompañamiento 1:1 en cada sesión para aprender técnica biomecánica en tiempo real. ¿Qué horarios tienes disponibles?"
     };
 
-    let selectedPackage = { 
-      name: "Entrenamiento Online", 
-      price: "60$" 
-    };
+    let selectedPackage = { name: "Entrenamiento Online", price: "60$" };
     let isRecaptchaVerified = false;
     let selectedRating = 5;
 
     // =======================================================
-    // 2. NAVEGACIÓN A PANTALLA COMPLETA DE CHECKOUT
+    // 2. NAVEGACIÓN A PANTALLA DE CHECKOUT Y WHATSAPP
     // =======================================================
     const mainView = document.getElementById('main-view');
     const checkoutView = document.getElementById('checkout-view');
@@ -1294,70 +1287,54 @@
     const checkoutPkgPrice = document.getElementById('checkout-pkg-price');
     const checkoutRecaptchaError = document.getElementById('checkout-recaptcha-error');
 
-    // Cambiar de la web principal a la pantalla de checkout
     function navigateToCheckout(packageName, packagePrice) {
-      selectedPackage = { 
-        name: packageName, 
-        price: packagePrice 
-      };
+      selectedPackage = { name: packageName, price: packagePrice };
 
       if (checkoutPkgName) checkoutPkgName.textContent = packageName;
       if (checkoutPkgPrice) checkoutPkgPrice.textContent = packagePrice;
 
-      // Resetear estado de reCAPTCHA
       isRecaptchaVerified = false;
-      if (checkoutRecaptchaError) {
-        checkoutRecaptchaError.classList.add('hidden');
-      }
+      if (checkoutRecaptchaError) checkoutRecaptchaError.classList.add('hidden');
+      
       if (typeof grecaptcha !== 'undefined') {
-        try {
-          grecaptcha.reset();
-        } catch (err) {
-          console.warn("reCAPTCHA preparándose");
-        }
+        try { grecaptcha.reset(); } catch (err) {}
       }
 
-      // Ocultar página principal y mostrar checkout de pantalla completa
-      mainView.classList.add('hidden');
-      checkoutView.classList.remove('hidden');
-      checkoutView.classList.add('flex');
+      if (mainView) mainView.classList.add('hidden');
+      if (checkoutView) {
+        checkoutView.classList.remove('hidden');
+        checkoutView.classList.add('flex');
+      }
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Regresar a la página principal
     function returnToMainView() {
-      checkoutView.classList.add('hidden');
-      checkoutView.classList.remove('flex');
-      mainView.classList.remove('hidden');
+      if (checkoutView) {
+        checkoutView.classList.add('hidden');
+        checkoutView.classList.remove('flex');
+      }
+      if (mainView) mainView.classList.remove('hidden');
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Callbacks oficiales de Google reCAPTCHA
     function onRecaptchaSuccess(token) {
       isRecaptchaVerified = true;
-      if (checkoutRecaptchaError) {
-        checkoutRecaptchaError.classList.add('hidden');
-      }
+      if (checkoutRecaptchaError) checkoutRecaptchaError.classList.add('hidden');
     }
 
     function onRecaptchaExpired() {
       isRecaptchaVerified = false;
     }
 
-    // Proceder al WhatsApp oficial con el mensaje del plan
     function proceedToWhatsapp() {
       if (!isRecaptchaVerified) {
-        if (checkoutRecaptchaError) {
-          checkoutRecaptchaError.classList.remove('hidden');
-        }
+        if (checkoutRecaptchaError) checkoutRecaptchaError.classList.remove('hidden');
         return;
       }
 
-      if (checkoutRecaptchaError) {
-        checkoutRecaptchaError.classList.add('hidden');
-      }
+      if (checkoutRecaptchaError) checkoutRecaptchaError.classList.add('hidden');
 
       const customMessage = WHATSAPP_MESSAGES[selectedPackage.name] || 
         `¡Hola Maye! Quiero comenzar con el plan *${selectedPackage.name}* (${selectedPackage.price}). ¿Cuáles son los siguientes pasos?`;
@@ -1369,65 +1346,64 @@
     }
 
     // =======================================================
-    // 3. INICIO DE SESIÓN CON GOOGLE (OAUTH)
+    // 3. INICIO DE SESIÓN CON GOOGLE (OAUTH 2.0 EMERGENTE)
     // =======================================================
+    let googleTokenClient = null;
+
     function iniciarSesionGoogle() {
-      if (typeof google === 'undefined' || !google.accounts) {
-        alert("Cargando servicios de Google, por favor espera un instante e intenta nuevamente.");
+      if (typeof google === 'undefined' || !google.accounts || !google.accounts.oauth2) {
+        alert("Los servicios de Google aún se están cargando en tu navegador. Espera 2 segundos y vuelve a presionar.");
         return;
       }
 
-      // Inicializar el cliente oficial de Google
-      google.accounts.id.initialize({
-        client_id: GOOGLE_CLIENT_ID,
-        callback: manejarRespuestaGoogle,
-        auto_select: false,
-        cancel_on_tap_outside: true
-      });
-
-      // Mostrar el selector emergente de cuentas de Google
-      google.accounts.id.prompt((notification) => {
-        if (notification.isNotDisplayed() || notification.isSkippedMomentum()) {
-          console.log("Selector en segundo plano o bloqueado por navegador móvil.");
-        }
-      });
-    }
-
-    // Procesar la credencial de Google recibida
-    function manejarRespuestaGoogle(response) {
       try {
-        const jwtToken = response.credential;
-        const base64Url = jwtToken.split('.')[1];
-        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-        const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
-          return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-        }).join(''));
+        if (!googleTokenClient) {
+          googleTokenClient = google.accounts.oauth2.initTokenClient({
+            client_id: GOOGLE_CLIENT_ID,
+            scope: 'email profile openid',
+            callback: async (tokenResponse) => {
+              if (tokenResponse.error) {
+                console.error("Error devuelto por Google:", tokenResponse);
+                alert("Error de autenticación con Google: " + (tokenResponse.error_description || tokenResponse.error));
+                return;
+              }
 
-        const userData = JSON.parse(jsonPayload);
+              if (tokenResponse.access_token) {
+                try {
+                  const res = await fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
+                    headers: { 'Authorization': `Bearer ${tokenResponse.access_token}` }
+                  });
+                  const userData = await res.json();
 
-        console.log("Alumna autenticada con éxito:", {
-          nombre: userData.name,
-          email: userData.email,
-          avatar: userData.picture
-        });
+                  alert(`¡Bienvenida ${userData.name}! Has iniciado sesión con éxito.`);
+                  closeAuthModal();
 
-        alert(`¡Bienvenida ${userData.name}! Has iniciado sesión correctamente.`);
-        closeAuthModal();
-
-        // Actualizar el botón de la cabecera con la foto y nombre
-        const btnArea = document.getElementById('btn-open-login');
-        if (btnArea) {
-          btnArea.innerHTML = `
-            <img src="${userData.picture}" class="w-5 h-5 rounded-full object-cover shadow-sm">
-            <span class="hidden sm:inline font-semibold text-primary">${userData.given_name || userData.name}</span>
-          `;
+                  const btnArea = document.getElementById('btn-open-login');
+                  if (btnArea) {
+                    btnArea.innerHTML = `
+                      <img src="${userData.picture}" class="w-5 h-5 rounded-full object-cover shadow-sm">
+                      <span class="hidden sm:inline font-semibold text-primary">${userData.given_name || userData.name}</span>
+                    `;
+                  }
+                } catch (fetchError) {
+                  console.error("Error al leer perfil:", fetchError);
+                  alert("No se pudo obtener la información de la cuenta.");
+                }
+              }
+            }
+          });
         }
-      } catch (error) {
-        console.error("Error al procesar el token de Google:", error);
+
+        // Abre la ventana oficial de selección de cuenta de Google
+        googleTokenClient.requestAccessToken({ prompt: 'select_account' });
+
+      } catch (err) {
+        console.error("Fallo al inicializar cliente de Google:", err);
+        alert("Error al conectar con Google: " + err.message);
       }
     }
     // =======================================================
-    // 4. MODAL DE AUTENTICACIÓN (LOGIN & REGISTRO)
+    // 4. CONTROL DEL MODAL DE AUTENTICACIÓN (LOGIN & REGISTRO)
     // =======================================================
     const authModal = document.getElementById('auth-modal');
     const btnOpenLogin = document.getElementById('btn-open-login');
@@ -1513,17 +1489,9 @@
       const email = document.getElementById('auth-email').value;
       const isRegister = !fieldName.classList.contains('hidden');
       const name = isRegister ? document.getElementById('reg-name').value : '';
-      const acceptsMarketing = isRegister ? document.getElementById('reg-marketing').checked : false;
-
-      console.log("Datos listos para base de datos/backend:", {
-        action: isRegister ? "registro" : "login",
-        name,
-        email,
-        marketing: acceptsMarketing
-      });
 
       alert(isRegister 
-        ? `¡Cuenta creada para ${name}! Registrado para novedades.` 
+        ? `¡Cuenta creada para ${name}!` 
         : `¡Inicio de sesión exitoso!`);
       
       closeAuthModal();
@@ -1592,9 +1560,7 @@
         </p>
       `;
 
-      if (reviewsWall) {
-        reviewsWall.prepend(newReview);
-      }
+      if (reviewsWall) reviewsWall.prepend(newReview);
 
       if (successMsg) {
         successMsg.classList.remove('hidden');
@@ -1606,13 +1572,9 @@
       if (ratingLabel) ratingLabel.textContent = "5.0 / 5";
     }
 
-    // =======================================================
-    // 6. TECLAS GLOBALES Y CLIC EXTERNO
-    // =======================================================
+    // Cerrar modal con escape o clic afuera
     window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        closeAuthModal();
-      }
+      if (e.key === 'Escape') closeAuthModal();
     });
 
     if (authModal) {
