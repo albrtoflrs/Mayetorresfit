@@ -504,7 +504,9 @@
             </div>
           </div>
         </section>
-        <!-- 5. SECCIÓN PAQUETES Y PRODUCTOS -->
+        <!-- --------------------------------------------------- -->
+        <!-- 5. SECCIÓN PAQUETES Y PRODUCTOS                     -->
+        <!-- --------------------------------------------------- -->
         <section id="paquetes" class="w-full py-24 px-margin-mobile lg:px-margin max-w-7xl mx-auto relative">
           <div class="flex flex-col items-center text-center max-w-3xl mx-auto gap-space-sm mb-16">
             <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-secondary-container/40 text-primary font-label-caps text-label-caps uppercase tracking-widest">
@@ -557,7 +559,7 @@
                 </div>
               </div>
 
-              <!-- Botón Checkout -->
+              <!-- Botón Selección -->
               <button type="button" onclick="navigateToCheckout('Entrenamiento Online', '60$')" class="mt-8 w-full py-4 rounded-full bg-surface-container-high hover:bg-primary-container text-on-surface hover:text-on-primary-container font-headline-sm text-sm font-semibold tracking-wide transition-all shadow-sm">
                 Elegir este plan
               </button>
@@ -602,7 +604,7 @@
                 </div>
               </div>
 
-              <!-- Botón Checkout -->
+              <!-- Botón Selección -->
               <button type="button" onclick="navigateToCheckout('Nutrición + Entrenamiento', '85$')" class="mt-8 w-full py-4 rounded-full bg-primary-container hover:brightness-110 text-on-primary-container font-headline-sm text-sm font-semibold tracking-wide transition-all shadow-[0_4px_20px_rgba(232,104,138,0.35)]">
                 Elegir este plan
               </button>
@@ -643,7 +645,7 @@
                 </div>
               </div>
 
-              <!-- Botón Checkout -->
+              <!-- Botón Selección -->
               <button type="button" onclick="navigateToCheckout('Entrenamiento Presencial', '200$')" class="mt-8 w-full py-4 rounded-full bg-surface-container-high hover:bg-primary-container text-on-surface hover:text-on-primary-container font-headline-sm text-sm font-semibold tracking-wide transition-all shadow-sm">
                 Elegir este plan
               </button>
@@ -652,7 +654,9 @@
           </div>
         </section>
 
-        <!-- 6. SECCIÓN TESTIMONIOS -->
+        <!-- --------------------------------------------------- -->
+        <!-- 6. SECCIÓN TESTIMONIOS                              -->
+        <!-- --------------------------------------------------- -->
         <section id="testimonios" class="w-full py-24 px-margin-mobile lg:px-margin max-w-7xl mx-auto relative">
           <!-- Auras ambientales -->
           <div class="absolute top-1/2 -left-20 w-80 h-80 bg-primary/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
@@ -1017,13 +1021,12 @@
           </p>
         </div>
 
-        <!-- Enlaces a Redes -->
+        <!-- Enlace de Instagram Oficial -->
         <div class="flex items-center gap-space-lg">
           <a class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="https://www.instagram.com/mayetorresfit?stkn=bzJ4ZXh0Y2d2NGNi" rel="noopener noreferrer" target="_blank">
             <span class="material-symbols-outlined">photo_camera</span>
             <span>Instagram</span>
           </a>
-          <!-- Enlace de WhatsApp directo con el número -->
           <a class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="https://wa.me/51923659476" rel="noopener noreferrer" target="_blank">
             <span class="material-symbols-outlined">chat</span>
             <span>WhatsApp</span>
@@ -1048,7 +1051,7 @@
 
   </div><!-- Fin de #main-view -->
   <!-- ======================================================= -->
-  <!-- VISTA 2: PANTALLA COMPLETA DE PROCEDER / CHECKOUT       -->
+  <!-- VISTA 2: PANTALLA COMPLETA DE REGISTRO & CHECKOUT       -->
   <!-- ======================================================= -->
   <div id="checkout-view" class="hidden min-h-screen w-full bg-surface text-on-surface flex-col fade-transition">
     <!-- Barra superior de navegación de Checkout -->
@@ -1067,81 +1070,194 @@
     </nav>
 
     <!-- Contenido Central de Checkout -->
-    <main class="flex-grow max-w-5xl mx-auto w-full py-12 lg:py-20 px-margin-mobile lg:px-margin">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+    <main class="flex-grow max-w-5xl mx-auto w-full py-10 lg:py-16 px-margin-mobile lg:px-margin">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
-        <!-- Columna Izquierda: Resumen del Plan Seleccionado (7 Columnas) -->
-        <div class="lg:col-span-7 flex flex-col gap-6">
+        <!-- Columna Izquierda: Resumen del Plan Seleccionado (5 Columnas) -->
+        <div class="lg:col-span-5 flex flex-col gap-6">
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container/40 text-primary font-label-caps text-xs uppercase tracking-widest self-start">
-            <span class="material-symbols-outlined text-sm">check_circle</span>
-            <span>Paso Final de Registro</span>
+            <span class="material-symbols-outlined text-sm">assignment_turned_in</span>
+            <span>Plan Seleccionado</span>
           </div>
 
-          <h1 class="font-headline-lg text-headline-lg-mobile lg:text-headline-lg font-bold text-on-surface">
-            Estás a un paso de comenzar tu transformación
-          </h1>
-
-          <!-- Tarjeta Detalle de Plan -->
-          <div class="p-8 rounded-3xl bg-surface-container-low border border-outline-variant/20 shadow-xl flex flex-col gap-6">
-            <div class="flex items-center justify-between pb-4 border-b border-outline-variant/15">
+          <div class="p-6 sm:p-8 rounded-3xl bg-surface-container-low border border-outline-variant/20 shadow-xl flex flex-col gap-6">
+            <div class="pb-4 border-b border-outline-variant/15 flex items-baseline justify-between">
               <div>
-                <span class="font-label-caps text-xs uppercase text-primary tracking-wider">Plan Elegido</span>
-                <h2 id="checkout-pkg-name" class="font-headline-sm text-2xl font-bold text-on-surface mt-0.5">Entrenamiento Online</h2>
+                <span class="font-label-caps text-xs uppercase text-primary tracking-wider">Tu Elección</span>
+                <h2 id="checkout-pkg-name" class="font-headline-sm text-2xl font-bold text-on-surface mt-1">Entrenamiento Online</h2>
               </div>
               <div class="text-right">
-                <span id="checkout-pkg-price" class="font-display-hero text-3xl sm:text-4xl font-bold text-primary">60$</span>
-                <span class="block text-xs text-on-surface-variant font-body-sm">Inversión mensual</span>
+                <span id="checkout-pkg-price" class="font-display-hero text-3xl font-bold text-primary">60$</span>
+                <span class="block text-xs text-on-surface-variant font-body-sm">/ mes</span>
               </div>
             </div>
 
-            <!-- Inclusiones destacadas -->
             <div class="flex flex-col gap-3">
-              <span class="font-label-md text-xs font-semibold text-on-surface uppercase tracking-wider">Garantías de tu proceso:</span>
+              <span class="font-label-md text-xs font-semibold text-on-surface uppercase tracking-wider">Tu plan incluye:</span>
               <ul class="flex flex-col gap-2.5 text-sm text-on-surface-variant">
-                <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-primary text-lg">verified</span><span>Atención 100% individualizada y sin plantillas genéricas.</span></li>
-                <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-primary text-lg">verified</span><span>Ajustes periódicos de volumen y nutrición según tu evolución.</span></li>
-                <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-primary text-lg">verified</span><span>Canal directo con Maye Torres para correcciones técnicas.</span></li>
+                <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-primary text-lg">verified</span><span>Atención 100% individualizada y sin plantillas.</span></li>
+                <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-primary text-lg">verified</span><span>Ajustes periódicos de volumen y nutrición.</span></li>
+                <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-primary text-lg">verified</span><span>Canal de seguimiento directo con Maye.</span></li>
               </ul>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-surface-container border border-outline-variant/15 text-xs text-on-surface-variant leading-relaxed">
+              <strong class="text-on-surface">Paso obligatorio:</strong> Completa tu ficha de inscripción. Tus datos se guardarán en el registro local de la página y serás redirigida al chat de WhatsApp con el mensaje oficial de inicio.
             </div>
           </div>
         </div>
 
-        <!-- Columna Derecha: Verificación reCAPTCHA y Acceso WhatsApp (5 Columnas) -->
-        <div class="lg:col-span-5 p-8 rounded-3xl bg-surface-container-low border border-primary/40 shadow-2xl flex flex-col gap-6">
+        <!-- Columna Derecha: Formulario Obligatorio de Registro (7 Columnas) -->
+        <div class="lg:col-span-7 p-6 sm:p-8 rounded-3xl bg-surface-container-low border border-primary/40 shadow-2xl flex flex-col gap-6">
           <div class="flex items-center gap-3">
             <div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary">
-              <span class="material-symbols-outlined text-xl">shield</span>
+              <span class="material-symbols-outlined text-xl">app_registration</span>
             </div>
             <div>
-              <h3 class="font-headline-sm text-lg font-bold text-on-surface">Validación de Seguridad</h3>
-              <p class="font-body-sm text-xs text-on-surface-variant">Verifica tu solicitud antes de abrir WhatsApp</p>
+              <h3 class="font-headline-sm text-lg font-bold text-on-surface">Ficha de Registro de Alumna</h3>
+              <p class="font-body-sm text-xs text-on-surface-variant">Ingresa tus datos obligatorios para guardarlos en el registro</p>
             </div>
           </div>
 
-          <p class="font-body-sm text-xs text-on-surface-variant leading-relaxed">
-            Para garantizar una atención personalizada y evitar solicitudes automáticas, completa la verificación de Google para ser atendida directamente en mi chat privado.
-          </p>
-
-          <!-- Widget de Google reCAPTCHA -->
-          <div class="flex flex-col items-center justify-center py-2">
-            <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" data-callback="onRecaptchaSuccess" data-expired-callback="onRecaptchaExpired"></div>
-            <span id="checkout-recaptcha-error" class="hidden text-error font-body-sm text-xs mt-3">Por favor completa la verificación de seguridad para continuar.</span>
+          <!-- Mensaje de confirmación -->
+          <div id="client-registration-success" class="hidden p-4 rounded-2xl bg-primary-container/20 border border-primary/50 text-primary text-sm flex flex-col gap-1">
+            <div class="flex items-center gap-2 font-bold">
+              <span class="material-symbols-outlined text-lg">check_circle</span>
+              <span>¡Registro guardado en la página con éxito!</span>
+            </div>
+            <p class="text-xs text-on-surface-variant">
+              Tus datos quedaron almacenados localmente y se está abriendo WhatsApp con tu consulta.
+            </p>
           </div>
 
-          <!-- Botón de Continuar a WhatsApp -->
-          <button type="button" id="btn-checkout-whatsapp" onclick="proceedToWhatsapp()" class="w-full py-4 rounded-xl bg-primary-container text-on-primary-container font-headline-sm text-sm font-semibold tracking-wide shadow-[0_4px_20px_rgba(232,104,138,0.35)] hover:brightness-110 transition-all flex items-center justify-center gap-2.5">
-            <span class="material-symbols-outlined text-xl">chat</span>
-            <span>Contactar al WhatsApp de Maye</span>
-          </button>
+          <form id="form-client-registration" onsubmit="handleClientRegistrationSubmit(event)" class="flex flex-col gap-4">
+            <!-- 1. Nombre -->
+            <div class="flex flex-col gap-1.5">
+              <label for="client-reg-name" class="font-label-sm text-xs text-on-surface-variant font-medium">Nombre completo *</label>
+              <div class="relative">
+                <input type="text" id="client-reg-name" required placeholder="Ej. Camila Silva" class="w-full bg-surface-container px-4 py-3 pl-11 rounded-xl border border-outline-variant/40 focus:border-primary text-on-surface font-body-sm text-sm focus:outline-none transition-colors">
+                <span class="material-symbols-outlined absolute left-3.5 top-3 text-outline text-lg">person</span>
+              </div>
+            </div>
 
-          <span class="text-center font-body-sm text-[11px] text-on-surface-variant/70">
-            Se abrirá la aplicación de WhatsApp con un mensaje preconfigurado indicando tu paquete seleccionado.
-          </span>
+            <!-- Fila: Email & Teléfono -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <!-- 2. Email -->
+              <div class="flex flex-col gap-1.5">
+                <label for="client-reg-email" class="font-label-sm text-xs text-on-surface-variant font-medium">Correo electrónico *</label>
+                <div class="relative">
+                  <input type="email" id="client-reg-email" required placeholder="tu@correo.com" class="w-full bg-surface-container px-4 py-3 pl-11 rounded-xl border border-outline-variant/40 focus:border-primary text-on-surface font-body-sm text-sm focus:outline-none transition-colors">
+                  <span class="material-symbols-outlined absolute left-3.5 top-3 text-outline text-lg">mail</span>
+                </div>
+              </div>
+
+              <!-- 3. Teléfono -->
+              <div class="flex flex-col gap-1.5">
+                <label for="client-reg-phone" class="font-label-sm text-xs text-on-surface-variant font-medium">Teléfono / WhatsApp *</label>
+                <div class="relative">
+                  <input type="tel" id="client-reg-phone" required placeholder="Ej. +51 987 654 321" class="w-full bg-surface-container px-4 py-3 pl-11 rounded-xl border border-outline-variant/40 focus:border-primary text-on-surface font-body-sm text-sm focus:outline-none transition-colors">
+                  <span class="material-symbols-outlined absolute left-3.5 top-3 text-outline text-lg">call</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Fila: Peso actual & Objetivo -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <!-- 4. Peso actual -->
+              <div class="flex flex-col gap-1.5">
+                <label for="client-reg-weight" class="font-label-sm text-xs text-on-surface-variant font-medium">Peso actual (kg / lb) *</label>
+                <div class="relative">
+                  <input type="text" id="client-reg-weight" required placeholder="Ej. 62 kg" class="w-full bg-surface-container px-4 py-3 pl-11 rounded-xl border border-outline-variant/40 focus:border-primary text-on-surface font-body-sm text-sm focus:outline-none transition-colors">
+                  <span class="material-symbols-outlined absolute left-3.5 top-3 text-outline text-lg">monitor_weight</span>
+                </div>
+              </div>
+
+              <!-- 5. Objetivo -->
+              <div class="flex flex-col gap-1.5">
+                <label for="client-reg-goal" class="font-label-sm text-xs text-on-surface-variant font-medium">Objetivo *</label>
+                <div class="relative">
+                  <select id="client-reg-goal" required class="w-full bg-surface-container px-4 py-3 pl-11 rounded-xl border border-outline-variant/40 focus:border-primary text-on-surface font-body-sm text-sm focus:outline-none transition-colors appearance-none cursor-pointer">
+                    <option value="" disabled selected>Selecciona tu objetivo...</option>
+                    <option value="Aumento de masa muscular / Glúteos">Aumento de masa muscular / Glúteos</option>
+                    <option value="Pérdida de grasa y definición">Pérdida de grasa y definición</option>
+                    <option value="Recomposición corporal integral">Recomposición corporal integral</option>
+                    <option value="Fuerza y técnica biomecánica">Fuerza y técnica biomecánica</option>
+                  </select>
+                  <span class="material-symbols-outlined absolute left-3.5 top-3 text-outline text-lg pointer-events-none">track_changes</span>
+                  <span class="material-symbols-outlined absolute right-3.5 top-3 text-outline text-lg pointer-events-none">expand_more</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 6. Plan (Autocompletado) -->
+            <div class="flex flex-col gap-1.5">
+              <label for="client-reg-plan" class="font-label-sm text-xs text-on-surface-variant font-medium">Plan asignado *</label>
+              <div class="relative">
+                <input type="text" id="client-reg-plan" readonly class="w-full bg-surface-container-high/60 px-4 py-3 pl-11 rounded-xl border border-primary/30 text-primary font-semibold font-body-sm text-sm focus:outline-none cursor-not-allowed">
+                <span class="material-symbols-outlined absolute left-3.5 top-3 text-primary text-lg">verified</span>
+              </div>
+            </div>
+
+            <!-- Widget de Google reCAPTCHA -->
+            <div class="flex flex-col items-center justify-center py-2 border-t border-outline-variant/15 mt-2">
+              <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" data-callback="onRecaptchaSuccess" data-expired-callback="onRecaptchaExpired"></div>
+              <span id="checkout-recaptcha-error" class="hidden text-error font-body-sm text-xs mt-2">Por favor completa la verificación de seguridad para continuar.</span>
+            </div>
+
+            <!-- Botón de Envío -->
+            <button type="submit" id="btn-submit-registration" class="w-full py-4 rounded-xl bg-primary-container text-on-primary-container font-headline-sm text-sm font-semibold tracking-wide shadow-[0_4px_20px_rgba(232,104,138,0.35)] hover:brightness-110 transition-all flex items-center justify-center gap-2.5">
+              <span class="material-symbols-outlined text-xl">save</span>
+              <span>Guardar registro y contactar a Maye por WhatsApp</span>
+            </button>
+
+            <span class="text-center font-body-sm text-[11px] text-on-surface-variant/70">
+              Tus datos se registran en el almacenamiento local de la página y se abrirá WhatsApp con el mensaje oficial del plan.
+            </span>
+          </form>
         </div>
 
       </div>
+      <!-- SECCIÓN DE REGISTRO DE DATOS DENTRO DE LA PÁGINA -->
+      <div class="mt-14 p-6 sm:p-8 rounded-3xl bg-surface-container-low border border-outline-variant/20 shadow-xl flex flex-col gap-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-outline-variant/15">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary">
+              <span class="material-symbols-outlined text-xl">database</span>
+            </div>
+            <div>
+              <h3 class="font-headline-sm text-lg font-bold text-on-surface">Registro de Datos de Alumnas</h3>
+              <p class="font-body-sm text-xs text-on-surface-variant">Historial almacenado localmente en esta página</p>
+            </div>
+          </div>
+          <button type="button" onclick="limpiarRegistros()" class="self-start sm:self-auto text-xs text-error hover:underline flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm">delete</span>
+            <span>Limpiar registros</span>
+          </button>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs text-on-surface-variant">
+            <thead class="bg-surface-container text-on-surface uppercase font-label-caps tracking-wider border-b border-outline-variant/20">
+              <tr>
+                <th class="py-3 px-4">Fecha</th>
+                <th class="py-3 px-4">Nombre</th>
+                <th class="py-3 px-4">Email</th>
+                <th class="py-3 px-4">Teléfono</th>
+                <th class="py-3 px-4">Peso</th>
+                <th class="py-3 px-4">Objetivo</th>
+                <th class="py-3 px-4">Plan</th>
+              </tr>
+            </thead>
+            <tbody id="clients-records-table-body" class="divide-y divide-outline-variant/10">
+              <!-- Filas generadas dinámicamente -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
     </main>
   </div><!-- Fin de #checkout-view -->
+
   <!-- ======================================================= -->
   <!-- MODAL DE AUTENTICACIÓN (LOGIN & REGISTRO)               -->
   <!-- ======================================================= -->
@@ -1172,7 +1288,6 @@
       </div>
 
       <div class="flex flex-col gap-3 mb-6">
-        <!-- Botón Activo de Google -->
         <button type="button" id="btn-google-login" onclick="iniciarSesionGoogle()" class="w-full flex items-center justify-center gap-3 py-3 px-4 rounded-xl bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 text-on-surface font-label-md text-label-md font-medium transition-all cursor-pointer">
           <svg class="w-5 h-5" viewBox="0 0 24 24">
             <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -1183,7 +1298,6 @@
           <span>Continuar con Google</span>
         </button>
 
-        <!-- Botón de Apple -->
         <button type="button" class="w-full flex items-center justify-center gap-3 py-3 px-4 rounded-xl bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 text-on-surface font-label-md text-label-md font-medium transition-all">
           <svg class="w-5 h-5 fill-current" viewBox="0 0 170 170">
             <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.7-3.04-7.6-7.7-11.7-13.98-6.19-9.58-11.07-20.73-14.65-33.45-3.58-12.72-5.37-24.96-5.37-36.73 0-16.14 4.04-29.62 12.11-40.45 8.08-10.83 18.29-16.36 30.64-16.59 4.35 0 9.27 1.15 14.75 3.44 5.48 2.29 9.38 3.5 11.7 3.63 1.96-.13 5.98-1.42 12.06-3.87 6.08-2.45 11.22-3.52 15.42-3.21 11.74.67 21.36 4.9 28.86 12.69-10.43 6.31-15.54 15.1-15.33 26.37.21 8.94 3.73 16.48 10.56 22.61 6.83 6.13 14.89 9.68 24.18 10.65-2.27 7.02-5.1 14.07-8.49 21.14zM119.22 33.7c0-7.23 2.66-13.99 7.99-20.28 5.33-6.29 11.83-10.38 19.5-12.27.67 1.34 1.01 2.76 1.01 4.26 0 7.37-2.73 14.28-8.19 20.73-5.46 6.45-12.06 10.46-19.8 12.02-.34-1.45-.51-2.94-.51-4.46z"/>
@@ -1250,11 +1364,11 @@
     </div>
   </div>
   <!-- ======================================================= -->
-  <!-- SCRIPTS INTERACTIVOS (JAVASCRIPT)                       -->
+  <!-- SCRIPTS INTERACTIVOS (JAVASCRIPT) - PARTE FINAL         -->
   <!-- ======================================================= -->
   <script>
     // =======================================================
-    // 1. CONFIGURACIÓN GENERAL & IDENTIFICADORES
+    // 1. CONFIGURACIÓN GENERAL & MENSAJES ORIGINALES DE WA
     // =======================================================
     const GOOGLE_CLIENT_ID = "874423038065-p6t7bcndcat2q0v73tej8t2mn92hj6ho.apps.googleusercontent.com";
     const WA_PHONE = "51923659476";
@@ -1275,19 +1389,25 @@
     let selectedRating = 5;
 
     // =======================================================
-    // 2. NAVEGACIÓN A PANTALLA DE CHECKOUT Y WHATSAPP
+    // 2. NAVEGACIÓN, REGISTRO LOCAL Y REDIRECCIÓN A WHATSAPP
     // =======================================================
     const mainView = document.getElementById('main-view');
     const checkoutView = document.getElementById('checkout-view');
     const checkoutPkgName = document.getElementById('checkout-pkg-name');
     const checkoutPkgPrice = document.getElementById('checkout-pkg-price');
     const checkoutRecaptchaError = document.getElementById('checkout-recaptcha-error');
+    const clientRegPlanInput = document.getElementById('client-reg-plan');
+    const registrationSuccessMsg = document.getElementById('client-registration-success');
+    const recordsTableBody = document.getElementById('clients-records-table-body');
 
     function navigateToCheckout(packageName, packagePrice) {
       selectedPackage = { name: packageName, price: packagePrice };
 
       if (checkoutPkgName) checkoutPkgName.textContent = packageName;
       if (checkoutPkgPrice) checkoutPkgPrice.textContent = packagePrice;
+      if (clientRegPlanInput) clientRegPlanInput.value = `${packageName} (${packagePrice}/mes)`;
+
+      if (registrationSuccessMsg) registrationSuccessMsg.classList.add('hidden');
 
       isRecaptchaVerified = false;
       if (checkoutRecaptchaError) checkoutRecaptchaError.classList.add('hidden');
@@ -1302,6 +1422,7 @@
         checkoutView.classList.add('flex');
       }
 
+      renderClientsTable();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -1324,7 +1445,10 @@
       isRecaptchaVerified = false;
     }
 
-    function proceedToWhatsapp() {
+    // Guarda los datos en localStorage y abre WhatsApp con el mensaje original limpio
+    function handleClientRegistrationSubmit(event) {
+      event.preventDefault();
+
       if (!isRecaptchaVerified) {
         if (checkoutRecaptchaError) checkoutRecaptchaError.classList.remove('hidden');
         return;
@@ -1332,24 +1456,95 @@
 
       if (checkoutRecaptchaError) checkoutRecaptchaError.classList.add('hidden');
 
+      // 1. Extracción de los datos obligatorios del cliente
+      const nuevoRegistro = {
+        nombre: document.getElementById('client-reg-name').value.trim(),
+        email: document.getElementById('client-reg-email').value.trim(),
+        telefono: document.getElementById('client-reg-phone').value.trim(),
+        pesoActual: document.getElementById('client-reg-weight').value.trim(),
+        objetivo: document.getElementById('client-reg-goal').value,
+        plan: `${selectedPackage.name} (${selectedPackage.price}/mes)`,
+        fecha: new Date().toLocaleDateString('es-ES', { 
+          year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' 
+        })
+      };
+
+      // 2. Guardar en el almacenamiento local (localStorage) de la página
+      try {
+        const registros = JSON.parse(localStorage.getItem('maye_fit_registros_locales') || '[]');
+        registros.unshift(nuevoRegistro);
+        localStorage.setItem('maye_fit_registros_locales', JSON.stringify(registros));
+      } catch (err) {
+        console.warn("No se pudo escribir en el almacenamiento local:", err);
+      }
+
+      // 3. Notificación de éxito y actualización de la tabla visible
+      if (registrationSuccessMsg) {
+        registrationSuccessMsg.classList.remove('hidden');
+      }
+      renderClientsTable();
+
+      // 4. Preparación del mensaje predeterminado original (sin datos personales en el chat)
       const customMessage = WHATSAPP_MESSAGES[selectedPackage.name] || 
         `¡Hola Maye! Quiero comenzar con el plan *${selectedPackage.name}* (${selectedPackage.price}). ¿Cuáles son los siguientes pasos?`;
 
       const encodedText = encodeURIComponent(customMessage);
-      // Enlace universal directo que rellena el mensaje en la app de WhatsApp
       const finalWhatsappUrl = `https://api.whatsapp.com/send?phone=${WA_PHONE}&text=${encodedText}`;
 
-      window.location.href = finalWhatsappUrl;
+      // 5. Redirección a WhatsApp conservando el flujo oficial
+      setTimeout(() => {
+        window.location.href = finalWhatsappUrl;
+      }, 750);
+    }
+
+    // Renderiza los registros en la tabla dentro de la página
+    function renderClientsTable() {
+      if (!recordsTableBody) return;
+
+      let registros = [];
+      try {
+        registros = JSON.parse(localStorage.getItem('maye_fit_registros_locales') || '[]');
+      } catch (e) {
+        registros = [];
+      }
+
+      if (registros.length === 0) {
+        recordsTableBody.innerHTML = `
+          <tr>
+            <td colspan="7" class="py-6 text-center text-outline italic">No hay registros almacenados todavía. Los planes seleccionados aparecerán aquí.</td>
+          </tr>
+        `;
+        return;
+      }
+
+      recordsTableBody.innerHTML = registros.map(item => `
+        <tr class="hover:bg-surface-container/50 transition-colors">
+          <td class="py-3 px-4 text-on-surface whitespace-nowrap">${item.fecha}</td>
+          <td class="py-3 px-4 font-semibold text-on-surface">${item.nombre}</td>
+          <td class="py-3 px-4">${item.email}</td>
+          <td class="py-3 px-4">${item.telefono}</td>
+          <td class="py-3 px-4">${item.pesoActual}</td>
+          <td class="py-3 px-4">${item.objetivo}</td>
+          <td class="py-3 px-4 text-primary font-semibold">${item.plan}</td>
+        </tr>
+      `).join('');
+    }
+
+    function limpiarRegistros() {
+      if (confirm("¿Segura que deseas vaciar el registro de datos guardados en la página?")) {
+        localStorage.removeItem('maye_fit_registros_locales');
+        renderClientsTable();
+      }
     }
 
     // =======================================================
-    // 3. INICIO DE SESIÓN CON GOOGLE (OAUTH 2.0 EMERGENTE)
+    // 3. INICIO DE SESIÓN CON GOOGLE (OAUTH 2.0)
     // =======================================================
     let googleTokenClient = null;
 
     function iniciarSesionGoogle() {
       if (typeof google === 'undefined' || !google.accounts || !google.accounts.oauth2) {
-        alert("Los servicios de Google aún se están cargando en tu navegador. Espera 2 segundos y vuelve a presionar.");
+        alert("Los servicios de Google aún se están cargando. Espera 2 segundos y vuelve a presionar.");
         return;
       }
 
@@ -1400,7 +1595,7 @@
     }
 
     // =======================================================
-    // 4. CONTROL DEL MODAL DE AUTENTICACIÓN (LOGIN & REGISTRO)
+    // 4. CONTROL DEL MODAL DE AUTENTICACIÓN
     // =======================================================
     const authModal = document.getElementById('auth-modal');
     const btnOpenLogin = document.getElementById('btn-open-login');
@@ -1483,7 +1678,6 @@
 
     function handleAuthSubmit(event) {
       event.preventDefault();
-      const email = document.getElementById('auth-email').value;
       const isRegister = !fieldName.classList.contains('hidden');
       const name = isRegister ? document.getElementById('reg-name').value : '';
 
@@ -1495,7 +1689,7 @@
     }
 
     // =======================================================
-    // 5. SISTEMA DE RESEÑAS Y CALIFICACIÓN CON ESTRELLAS
+    // 5. SISTEMA DE RESEÑAS
     // =======================================================
     const starBtns = document.querySelectorAll('.star-btn');
     const ratingLabel = document.getElementById('rating-label');
@@ -1569,7 +1763,11 @@
       if (ratingLabel) ratingLabel.textContent = "5.0 / 5";
     }
 
-    // Cerrar modal con escape o clic afuera
+    // Inicialización al cargar la página
+    window.addEventListener('DOMContentLoaded', () => {
+      renderClientsTable();
+    });
+
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeAuthModal();
     });
