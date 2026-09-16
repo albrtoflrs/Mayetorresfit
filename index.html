@@ -1313,25 +1313,30 @@
   <!-- ======================================================= -->
   <!-- SCRIPTS INTERACTIVOS (JAVASCRIPT) - PARTE FINAL         -->
   <!-- ======================================================= -->
-  <script>
+    <script>
     // =======================================================
     // 1. CONFIGURACIÓN GENERAL, SUPABASE & MENSAJES WA
     // =======================================================
     const GOOGLE_CLIENT_ID = "874423038065-p6t7bcndcat2q0v73tej8t2mn92hj6ho.apps.googleusercontent.com";
     const WA_PHONE = "51923659476";
-
-    // Inicialización del cliente Supabase
     const SUPABASE_URL = "https://eodqpqlkbshggoxjhoca.supabase.co";
-    const SUPABASE_ANON_KEY = "sb_publishable_lTLBCMxATZ44StbZQO0_GA_N5SGLBbF"; // Tu clave de Supabase sb_publishable...
-    const supabase = window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
+    const SUPABASE_ANON_KEY = "sb_publishable_lTLBCMxATZ44StbZQO0_GA_N5SGLBbF";
+
+    // Inicialización segura de Supabase con captura de errores
+    let supabaseClient = null;
+    try {
+      if (typeof window !== 'undefined' && window.supabase && typeof window.supabase.createClient === 'function') {
+        supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+      }
+    } catch (err) {
+      console.warn("Supabase no pudo inicializarse de inmediato:", err);
+    }
 
     const WHATSAPP_MESSAGES = {
       "Entrenamiento Online": 
         "¡Hola Maye! Acabo de validar mi solicitud en tu web. Quiero comenzar con el plan *Entrenamiento Online (60$/mes)* para estructurar mis rutinas, progresar en mis cargas y mejorar mi técnica. ¿Cuáles son los siguientes pasos?",
-      
       "Nutrición + Entrenamiento": 
         "¡Hola Maye! Acabo de validar mi solicitud en la web y elegí el plan *Nutrición + Entrenamiento (85$/mes)*. Busco una transformación integral de mi composición corporal dentro y fuera del gym. ¿Cómo coordinamos la evaluación inicial?",
-      
       "Entrenamiento Presencial": 
         "¡Hola Maye! Acabo de validar mi solicitud en tu web para el plan *Entrenamiento Presencial (200$/mes)*. Quiero acompañamiento 1:1 en cada sesión para aprender técnica biomecánica en tiempo real. ¿Qué horarios tienes disponibles?"
     };
@@ -1341,70 +1346,69 @@
     let selectedRating = 5;
 
     // =======================================================
-    // 2. NAVEGACIÓN Y ENVÍO SEGURO A SUPABASE
+    // 2. NAVEGACIÓN Y ENVÍO SEGURO
     // =======================================================
-    const mainView = document.getElementById('main-view');
-    const checkoutView = document.getElementById('checkout-view');
-    const checkoutPkgName = document.getElementById('checkout-pkg-name');
-    const checkoutPkgPrice = document.getElementById('checkout-pkg-price');
-    const checkoutRecaptchaError = document.getElementById('checkout-recaptcha-error');
-    const clientRegPlanInput = document.getElementById('client-reg-plan');
-    const registrationSuccessMsg = document.getElementById('client-registration-success');
-
-    function navigateToCheckout(packageName, packagePrice) {
+    window.navigateToCheckout = function(packageName, packagePrice) {
       selectedPackage = { name: packageName, price: packagePrice };
 
-      if (checkoutPkgName) checkoutPkgName.textContent = packageName;
-      if (checkoutPkgPrice) checkoutPkgPrice.textContent = packagePrice;
-      if (clientRegPlanInput) clientRegPlanInput.value = `${packageName} (${packagePrice}/mes)`;
+      const nameEl = document.getElementById('checkout-pkg-name');
+      const priceEl = document.getElementById('checkout-pkg-price');
+      const planInput = document.getElementById('client-reg-plan');
+      const successMsg = document.getElementById('client-registration-success');
+      const recaptchaErr = document.getElementById('checkout-recaptcha-error');
+      const main = document.getElementById('main-view');
+      const checkout = document.getElementById('checkout-view');
 
-      if (registrationSuccessMsg) registrationSuccessMsg.classList.add('hidden');
+      if (nameEl) nameEl.textContent = packageName;
+      if (priceEl) priceEl.textContent = packagePrice;
+      if (planInput) planInput.value = `${packageName} (${packagePrice}/mes)`;
+      if (successMsg) successMsg.classList.add('hidden');
+      if (recaptchaErr) recaptchaErr.classList.add('hidden');
 
       isRecaptchaVerified = false;
-      if (checkoutRecaptchaError) checkoutRecaptchaError.classList.add('hidden');
-      
-      if (typeof grecaptcha !== 'undefined') {
-        try { grecaptcha.reset(); } catch (err) {}
+      if (typeof grecaptcha !== 'undefined' && grecaptcha.reset) {
+        try { grecaptcha.reset(); } catch (e) {}
       }
 
-      if (mainView) mainView.classList.add('hidden');
-      if (checkoutView) {
-        checkoutView.classList.remove('hidden');
-        checkoutView.classList.add('flex');
+      if (main) main.classList.add('hidden');
+      if (checkout) {
+        checkout.classList.remove('hidden');
+        checkout.classList.add('flex');
       }
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    };
 
-    function returnToMainView() {
-      if (checkoutView) {
-        checkoutView.classList.add('hidden');
-        checkoutView.classList.remove('flex');
+    window.returnToMainView = function() {
+      const main = document.getElementById('main-view');
+      const checkout = document.getElementById('checkout-view');
+      if (checkout) {
+        checkout.classList.add('hidden');
+        checkout.classList.remove('flex');
       }
-      if (mainView) mainView.classList.remove('hidden');
-
+      if (main) main.classList.remove('hidden');
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    };
 
-    function onRecaptchaSuccess(token) {
+    window.onRecaptchaSuccess = function(token) {
       isRecaptchaVerified = true;
-      if (checkoutRecaptchaError) checkoutRecaptchaError.classList.add('hidden');
-    }
+      const err = document.getElementById('checkout-recaptcha-error');
+      if (err) err.classList.add('hidden');
+    };
 
-    function onRecaptchaExpired() {
+    window.onRecaptchaExpired = function() {
       isRecaptchaVerified = false;
-    }
+    };
 
-    // Guarda los datos exclusivamente en el servidor (Supabase) sin mostrarlos públicamente
-    async function handleClientRegistrationSubmit(event) {
+    window.handleClientRegistrationSubmit = async function(event) {
       event.preventDefault();
 
+      const recaptchaErr = document.getElementById('checkout-recaptcha-error');
       if (!isRecaptchaVerified) {
-        if (checkoutRecaptchaError) checkoutRecaptchaError.classList.remove('hidden');
+        if (recaptchaErr) recaptchaErr.classList.remove('hidden');
         return;
       }
-
-      if (checkoutRecaptchaError) checkoutRecaptchaError.classList.add('hidden');
+      if (recaptchaErr) recaptchaErr.classList.add('hidden');
 
       const submitBtn = document.getElementById('btn-submit-registration');
       if (submitBtn) {
@@ -1415,48 +1419,34 @@
         `;
       }
 
-      // 1. Extracción de los datos obligatorios del cliente
       const payload = {
-        nombre: document.getElementById('client-reg-name').value.trim(),
-        email: document.getElementById('client-reg-email').value.trim(),
-        telefono: document.getElementById('client-reg-phone').value.trim(),
-        peso_actual: document.getElementById('client-reg-weight').value.trim(),
-        objetivo: document.getElementById('client-reg-goal').value,
+        nombre: (document.getElementById('client-reg-name')?.value || '').trim(),
+        email: (document.getElementById('client-reg-email')?.value || '').trim(),
+        telefono: (document.getElementById('client-reg-phone')?.value || '').trim(),
+        peso_actual: (document.getElementById('client-reg-weight')?.value || '').trim(),
+        objetivo: document.getElementById('client-reg-goal')?.value || '',
         plan: `${selectedPackage.name} (${selectedPackage.price}/mes)`
       };
 
-      // 2. Guardar exclusivamente en el servidor de base de datos Supabase
-      if (supabase) {
+      if (supabaseClient) {
         try {
-          const { error } = await supabase
-            .from('MayeTorresFit')
-            .insert([payload]);
-
-          if (error) {
-            console.error("Error al registrar en Supabase:", error);
-            alert("Aviso: Hubo un inconveniente al guardar en el servidor (" + error.message + "), pero serás redirigida a WhatsApp para asegurar tu cupo.");
-          }
+          const { error } = await supabaseClient.from('MayeTorresFit').insert([payload]);
+          if (error) console.warn("Aviso en guardado Supabase:", error.message);
         } catch (dbErr) {
           console.error("Excepción en conexión Supabase:", dbErr);
         }
       }
 
-      // 3. Notificación de confirmación privada (sin listar datos de otros)
-      if (registrationSuccessMsg) {
-        registrationSuccessMsg.classList.remove('hidden');
-      }
+      const successMsg = document.getElementById('client-registration-success');
+      if (successMsg) successMsg.classList.remove('hidden');
 
-      // Limpiar el formulario
-      document.getElementById('form-client-registration').reset();
+      const form = document.getElementById('form-client-registration');
+      if (form) form.reset();
 
-      // 4. Preparación del mensaje predeterminado para WhatsApp
       const customMessage = WHATSAPP_MESSAGES[selectedPackage.name] || 
         `¡Hola Maye! Quiero comenzar con el plan *${selectedPackage.name}* (${selectedPackage.price}). ¿Cuáles son los siguientes pasos?`;
+      const finalWhatsappUrl = `https://api.whatsapp.com/send?phone=${WA_PHONE}&text=${encodeURIComponent(customMessage)}`;
 
-      const encodedText = encodeURIComponent(customMessage);
-      const finalWhatsappUrl = `https://api.whatsapp.com/send?phone=${WA_PHONE}&text=${encodedText}`;
-
-      // 5. Redirección a WhatsApp
       setTimeout(() => {
         if (submitBtn) {
           submitBtn.disabled = false;
@@ -1467,16 +1457,16 @@
         }
         window.location.href = finalWhatsappUrl;
       }, 750);
-    }
+    };
 
     // =======================================================
     // 3. INICIO DE SESIÓN CON GOOGLE (OAUTH 2.0)
     // =======================================================
     let googleTokenClient = null;
 
-    function iniciarSesionGoogle() {
+    window.iniciarSesionGoogle = function() {
       if (typeof google === 'undefined' || !google.accounts || !google.accounts.oauth2) {
-        alert("Los servicios de Google aún se están cargando. Espera 2 segundos y vuelve a presionar.");
+        alert("Los servicios de Google aún se están cargando. Espera un segundo y vuelve a presionar.");
         return;
       }
 
@@ -1487,7 +1477,6 @@
             scope: 'email profile openid',
             callback: async (tokenResponse) => {
               if (tokenResponse.error) {
-                console.error("Error devuelto por Google:", tokenResponse);
                 alert("Error de autenticación con Google: " + (tokenResponse.error_description || tokenResponse.error));
                 return;
               }
@@ -1498,7 +1487,6 @@
                     headers: { 'Authorization': `Bearer ${tokenResponse.access_token}` }
                   });
                   const userData = await res.json();
-
                   alert(`¡Bienvenida ${userData.name}! Has iniciado sesión con éxito.`);
                   closeAuthModal();
 
@@ -1511,27 +1499,21 @@
                   }
                 } catch (fetchError) {
                   console.error("Error al leer perfil:", fetchError);
-                  alert("No se pudo obtener la información de la cuenta.");
                 }
               }
             }
           });
         }
-
         googleTokenClient.requestAccessToken({ prompt: 'select_account' });
-
       } catch (err) {
-        console.error("Fallo al inicializar cliente de Google:", err);
         alert("Error al conectar con Google: " + err.message);
       }
-    }
+    };
 
     // =======================================================
     // 4. CONTROL DEL MODAL DE AUTENTICACIÓN
     // =======================================================
     const authModal = document.getElementById('auth-modal');
-    const btnOpenLogin = document.getElementById('btn-open-login');
-    const closeAuthModalBtn = document.getElementById('close-auth-modal');
     const tabLogin = document.getElementById('tab-login');
     const tabRegister = document.getElementById('tab-register');
     const fieldName = document.getElementById('field-name');
@@ -1543,62 +1525,55 @@
     const authPasswordInput = document.getElementById('auth-password');
     const iconTogglePass = document.getElementById('icon-toggle-pass');
 
-    function openAuthModal(mode = 'login') {
+    window.openAuthModal = function(mode = 'login') {
       if (authModal) {
         authModal.classList.remove('hidden');
         authModal.classList.add('flex');
         setAuthMode(mode);
       }
-    }
+    };
 
-    function closeAuthModal() {
+    window.closeAuthModal = function() {
       if (authModal) {
         authModal.classList.add('hidden');
         authModal.classList.remove('flex');
       }
-    }
-
-    if (btnOpenLogin) {
-      btnOpenLogin.addEventListener('click', () => openAuthModal('login'));
-    }
-    if (closeAuthModalBtn) {
-      closeAuthModalBtn.addEventListener('click', closeAuthModal);
-    }
+    };
 
     function setAuthMode(mode) {
+      if (!tabRegister || !tabLogin) return;
       if (mode === 'register') {
         tabRegister.className = "py-2 rounded-full font-label-md text-label-sm font-semibold transition-all bg-primary-container text-on-primary-container shadow-sm";
         tabLogin.className = "py-2 rounded-full font-label-md text-label-sm font-semibold transition-all text-on-surface-variant hover:text-on-surface";
-        
-        fieldName.classList.remove('hidden');
-        fieldName.classList.add('flex');
-        fieldMarketing.classList.remove('hidden');
-        fieldMarketing.classList.add('flex');
-        linkForgotPass.classList.add('hidden');
-
-        authModalTitle.textContent = "Crea tu cuenta";
-        authModalSubtitle.textContent = "Regístrate para guardar tu proceso y recibir novedades";
-        btnAuthSubmit.textContent = "Crear cuenta";
+        if (fieldName) { fieldName.classList.remove('hidden'); fieldName.classList.add('flex'); }
+        if (fieldMarketing) { fieldMarketing.classList.remove('hidden'); fieldMarketing.classList.add('flex'); }
+        if (linkForgotPass) linkForgotPass.classList.add('hidden');
+        if (authModalTitle) authModalTitle.textContent = "Crea tu cuenta";
+        if (authModalSubtitle) authModalSubtitle.textContent = "Regístrate para guardar tu proceso y recibir novedades";
+        if (btnAuthSubmit) btnAuthSubmit.textContent = "Crear cuenta";
       } else {
         tabLogin.className = "py-2 rounded-full font-label-md text-label-sm font-semibold transition-all bg-primary-container text-on-primary-container shadow-sm";
         tabRegister.className = "py-2 rounded-full font-label-md text-label-sm font-semibold transition-all text-on-surface-variant hover:text-on-surface";
-
-        fieldName.classList.add('hidden');
-        fieldName.classList.remove('flex');
-        fieldMarketing.classList.add('hidden');
-        fieldMarketing.classList.remove('flex');
-        linkForgotPass.classList.remove('hidden');
-
-        authModalTitle.textContent = "Bienvenida de nuevo";
-        authModalSubtitle.textContent = "Ingresa para acceder a tu área de entrenamiento";
-        btnAuthSubmit.textContent = "Iniciar sesión";
+        if (fieldName) { fieldName.classList.add('hidden'); fieldName.classList.remove('flex'); }
+        if (fieldMarketing) { fieldMarketing.classList.add('hidden'); fieldMarketing.classList.remove('flex'); }
+        if (linkForgotPass) linkForgotPass.classList.remove('hidden');
+        if (authModalTitle) authModalTitle.textContent = "Bienvenida de nuevo";
+        if (authModalSubtitle) authModalSubtitle.textContent = "Ingresa para acceder a tu área de entrenamiento";
+        if (btnAuthSubmit) btnAuthSubmit.textContent = "Iniciar sesión";
       }
     }
+
+    const btnOpenLogin = document.getElementById('btn-open-login');
+    if (btnOpenLogin) btnOpenLogin.addEventListener('click', () => openAuthModal('login'));
+
+    const closeAuthModalBtn = document.getElementById('close-auth-modal');
+    if (closeAuthModalBtn) closeAuthModalBtn.addEventListener('click', closeAuthModal);
 
     if (tabLogin) tabLogin.addEventListener('click', () => setAuthMode('login'));
     if (tabRegister) tabRegister.addEventListener('click', () => setAuthMode('register'));
 
-    function togglePasswordVisibility() {
+    window.togglePasswordVisibility = function() {
+      if (!authPasswordInput || !iconTogglePass) return;
       if (authPasswordInput.type === 'password') {
         authPasswordInput.type = 'text';
         iconTogglePass.textContent = 'visibility_off';
@@ -1606,19 +1581,15 @@
         authPasswordInput.type = 'password';
         iconTogglePass.textContent = 'visibility';
       }
-    }
+    };
 
-    function handleAuthSubmit(event) {
+    window.handleAuthSubmit = function(event) {
       event.preventDefault();
-      const isRegister = !fieldName.classList.contains('hidden');
-      const name = isRegister ? document.getElementById('reg-name').value : '';
-
-      alert(isRegister 
-        ? `¡Cuenta creada para ${name}!` 
-        : `¡Inicio de sesión exitoso!`);
-      
+      const isRegister = fieldName && !fieldName.classList.contains('hidden');
+      const name = isRegister ? (document.getElementById('reg-name')?.value || '') : '';
+      alert(isRegister ? `¡Cuenta creada para ${name}!` : `¡Inicio de sesión exitoso!`);
       closeAuthModal();
-    }
+    };
 
     // =======================================================
     // 5. SISTEMA DE RESEÑAS
@@ -1628,7 +1599,7 @@
 
     starBtns.forEach(btn => {
       btn.addEventListener('click', () => {
-        selectedRating = parseInt(btn.getAttribute('data-value'));
+        selectedRating = parseInt(btn.getAttribute('data-value')) || 5;
         if (ratingLabel) ratingLabel.textContent = `${selectedRating}.0 / 5`;
         updateStars(selectedRating);
       });
@@ -1647,10 +1618,10 @@
       });
     }
 
-    function handleReviewSubmit(event) {
+    window.handleReviewSubmit = function(event) {
       event.preventDefault();
-      const name = document.getElementById('review-name').value;
-      const comment = document.getElementById('review-text').value;
+      const name = document.getElementById('review-name')?.value || 'Alumna';
+      const comment = document.getElementById('review-text')?.value || '';
       const reviewsWall = document.getElementById('reviews-wall');
       const successMsg = document.getElementById('review-success');
 
@@ -1658,7 +1629,6 @@
       for (let i = 0; i < selectedRating; i++) {
         starsHtml += '<span class="material-symbols-outlined text-base">star</span>';
       }
-
       const initials = name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
 
       const newReview = document.createElement('div');
@@ -1674,31 +1644,33 @@
               <span class="font-label-sm text-xs text-primary font-medium">Alumna reciente</span>
             </div>
           </div>
-          <div class="flex items-center text-primary text-sm">
-            ${starsHtml}
-          </div>
+          <div class="flex items-center text-primary text-sm">${starsHtml}</div>
         </div>
-        <p class="font-body-sm text-sm text-on-surface-variant leading-relaxed">
-          "${comment}"
-        </p>
+        <p class="font-body-sm text-sm text-on-surface-variant leading-relaxed">"${comment}"</p>
       `;
 
       if (reviewsWall) reviewsWall.prepend(newReview);
-
       if (successMsg) {
         successMsg.classList.remove('hidden');
         setTimeout(() => successMsg.classList.add('hidden'), 5000);
       }
 
-      document.getElementById('form-review').reset();
+      const revForm = document.getElementById('form-review');
+      if (revForm) revForm.reset();
       updateStars(5);
       if (ratingLabel) ratingLabel.textContent = "5.0 / 5";
-    }
+    };
 
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeAuthModal();
     });
 
+    if (authModal) {
+      authModal.addEventListener('click', (e) => {
+        if (e.target === authModal) closeAuthModal();
+      });
+    }
+  </script>
     if (authModal) {
       authModal.addEventListener('click', (e) => {
         if (e.target === authModal) closeAuthModal();
