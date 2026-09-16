@@ -17,25 +17,13 @@
   <!-- SDK Oficial de Google Identity Services (OAuth) -->
   <script src="https://accounts.google.com/gsi/client" async defer></script>
 
-  <!-- SDK Oficial de Supabase -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
   <style>
     @layer base {
-      html, body { 
-        margin: 0; 
-        padding: 0; 
-      }
-      body { 
-        overscroll-behavior: none; 
-      }
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
     }
-    ::-webkit-scrollbar { 
-      display: none; 
-    }
-    html { 
-      scroll-behavior: smooth; 
-    }
+    ::-webkit-scrollbar { display: none; }
+    html { scroll-behavior: smooth; }
     .fade-transition {
       transition: opacity 0.35s ease-in-out, transform 0.35s ease-in-out;
     }
@@ -195,6 +183,7 @@
     <!-- MAIN WRAPPER -->
     <main class="w-full pt-20 bg-surface flex-grow">
       <div class="flex flex-col w-full text-on-surface overflow-x-hidden">
+
         <!-- 1. HERO SECTION -->
         <section id="inicio" class="relative w-full py-space-xl lg:py-28 px-margin-mobile lg:px-margin max-w-7xl mx-auto">
           <div class="absolute -top-12 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
@@ -456,7 +445,6 @@
                 Protocolos científicamente enfocados en pérdida de grasa preservando, tonificando y resaltando la densidad muscular clave.
               </p>
             </div>
-
             <!-- Card 04 -->
             <div class="group flex flex-col p-8 rounded-3xl bg-surface-container-low hover:bg-surface-container transition-all duration-300 shadow-md border border-outline-variant/15">
               <div class="flex items-center justify-between mb-6">
@@ -506,6 +494,7 @@
             </div>
           </div>
         </section>
+
         <!-- 5. SECCIÓN PAQUETES Y PRODUCTOS -->
         <section id="paquetes" class="w-full py-24 px-margin-mobile lg:px-margin max-w-7xl mx-auto relative">
           <div class="flex flex-col items-center text-center max-w-3xl mx-auto gap-space-sm mb-16">
@@ -535,13 +524,11 @@
                   </p>
                 </div>
 
-                <!-- Precio 60$ -->
                 <div class="flex items-baseline gap-1 py-3 border-y border-outline-variant/15">
                   <span class="font-display-hero text-4xl font-bold text-on-surface">60$</span>
                   <span class="font-body-sm text-on-surface-variant">/ mes</span>
                 </div>
 
-                <!-- Lista de Inclusiones -->
                 <div class="flex flex-col gap-3">
                   <span class="font-label-md text-xs font-semibold text-on-surface uppercase tracking-wider">Incluye:</span>
                   <ul class="flex flex-col gap-2 text-sm text-on-surface-variant">
@@ -559,7 +546,6 @@
                 </div>
               </div>
 
-              <!-- Botón Selección -->
               <button type="button" onclick="navigateToCheckout('Entrenamiento Online', '60$')" class="mt-8 w-full py-4 rounded-full bg-surface-container-high hover:bg-primary-container text-on-surface hover:text-on-primary-container font-headline-sm text-sm font-semibold tracking-wide transition-all shadow-sm">
                 Elegir este plan
               </button>
@@ -580,13 +566,11 @@
                   </p>
                 </div>
 
-                <!-- Precio 85$ -->
                 <div class="flex items-baseline gap-1 py-3 border-y border-outline-variant/15">
                   <span class="font-display-hero text-4xl font-bold text-on-surface">85$</span>
                   <span class="font-body-sm text-on-surface-variant">/ mes</span>
                 </div>
 
-                <!-- Lista de Inclusiones -->
                 <div class="flex flex-col gap-3">
                   <span class="font-label-md text-xs font-semibold text-on-surface uppercase tracking-wider">Incluye:</span>
                   <ul class="flex flex-col gap-2 text-sm text-on-surface-variant">
@@ -604,7 +588,6 @@
                 </div>
               </div>
 
-              <!-- Botón Selección -->
               <button type="button" onclick="navigateToCheckout('Nutrición + Entrenamiento', '85$')" class="mt-8 w-full py-4 rounded-full bg-primary-container hover:brightness-110 text-on-primary-container font-headline-sm text-sm font-semibold tracking-wide transition-all shadow-[0_4px_20px_rgba(232,104,138,0.35)]">
                 Elegir este plan
               </button>
@@ -621,13 +604,11 @@
                   </p>
                 </div>
 
-                <!-- Precio 200$ -->
                 <div class="flex items-baseline gap-1 py-3 border-y border-outline-variant/15">
                   <span class="font-display-hero text-4xl font-bold text-on-surface">200$</span>
                   <span class="font-body-sm text-on-surface-variant">/ mes</span>
                 </div>
 
-                <!-- Lista de Inclusiones -->
                 <div class="flex flex-col gap-3">
                   <span class="font-label-md text-xs font-semibold text-on-surface uppercase tracking-wider">Incluye:</span>
                   <ul class="flex flex-col gap-2 text-sm text-on-surface-variant">
@@ -645,7 +626,6 @@
                 </div>
               </div>
 
-              <!-- Botón Selección -->
               <button type="button" onclick="navigateToCheckout('Entrenamiento Presencial', '200$')" class="mt-8 w-full py-4 rounded-full bg-surface-container-high hover:bg-primary-container text-on-surface hover:text-on-primary-container font-headline-sm text-sm font-semibold tracking-wide transition-all shadow-sm">
                 Elegir este plan
               </button>
@@ -653,14 +633,11 @@
 
           </div>
         </section>
-
         <!-- 6. SECCIÓN TESTIMONIOS -->
         <section id="testimonios" class="w-full py-24 px-margin-mobile lg:px-margin max-w-7xl mx-auto relative">
-          <!-- Auras ambientales -->
           <div class="absolute top-1/2 -left-20 w-80 h-80 bg-primary/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
           <div class="absolute bottom-10 right-0 w-96 h-96 bg-secondary-container/15 rounded-full blur-[100px] pointer-events-none -z-10"></div>
 
-          <!-- Encabezado de Testimonios -->
           <div class="flex flex-col items-center text-center max-w-3xl mx-auto gap-space-sm mb-16">
             <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-secondary-container/40 text-primary font-label-caps text-label-caps uppercase tracking-widest">
               <span class="material-symbols-outlined text-sm">auto_awesome</span>
@@ -677,10 +654,8 @@
             </p>
           </div>
 
-          <!-- Grid de 3 Testimonios Reales -->
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
             
-            <!-- Testimonio 01 -->
             <div class="flex flex-col justify-between p-8 rounded-3xl bg-surface-container-low border border-outline-variant/20 shadow-lg hover:border-primary/40 transition-all duration-300">
               <div class="flex flex-col gap-5">
                 <div class="flex items-center gap-1 text-primary">
@@ -690,20 +665,15 @@
                   <span class="material-symbols-outlined text-lg">star</span>
                   <span class="material-symbols-outlined text-lg">star</span>
                 </div>
-                
                 <h3 class="font-headline-sm text-lg font-bold text-on-surface leading-snug">
                   “No solo cambió mi físico, cambió mi forma de entrenar.”
                 </h3>
-
                 <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
                   “Con Maye aprendí a entrenar realmente con intención. Empecé a entender los ejercicios, a progresar en mis cargas y, sobre todo, a confiar mucho más en mi cuerpo.”
                 </p>
               </div>
-
               <div class="flex items-center gap-3 pt-6 mt-6 border-t border-outline-variant/15">
-                <div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary font-bold text-sm">
-                  A
-                </div>
+                <div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary font-bold text-sm">A</div>
                 <div class="flex flex-col">
                   <span class="font-headline-sm text-sm font-semibold text-on-surface">Alumna verificada</span>
                   <span class="font-label-sm text-xs text-primary">Alumna de entrenamiento personalizado</span>
@@ -711,7 +681,6 @@
               </div>
             </div>
 
-            <!-- Testimonio 02 -->
             <div class="flex flex-col justify-between p-8 rounded-3xl bg-surface-container-low border border-outline-variant/20 shadow-lg hover:border-primary/40 transition-all duration-300">
               <div class="flex flex-col gap-5">
                 <div class="flex items-center gap-1 text-primary">
@@ -721,20 +690,15 @@
                   <span class="material-symbols-outlined text-lg">star</span>
                   <span class="material-symbols-outlined text-lg">star</span>
                 </div>
-                
                 <h3 class="font-headline-sm text-lg font-bold text-on-surface leading-snug">
                   “Por primera vez sentí que tenía un plan hecho para mí.”
                 </h3>
-
                 <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
                   “Antes empezaba dietas y entrenamientos que no podía mantener. Con Maye todo fue mucho más estructurado y adaptado a mi rutina. He logrado resultados sin sentir que tengo que vivir a dieta.”
                 </p>
               </div>
-
               <div class="flex items-center gap-3 pt-6 mt-6 border-t border-outline-variant/15">
-                <div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary font-bold text-sm">
-                  M
-                </div>
+                <div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary font-bold text-sm">M</div>
                 <div class="flex flex-col">
                   <span class="font-headline-sm text-sm font-semibold text-on-surface">Alumna verificada</span>
                   <span class="font-label-sm text-xs text-primary">Alumna online</span>
@@ -742,7 +706,6 @@
               </div>
             </div>
 
-            <!-- Testimonio 03 -->
             <div class="flex flex-col justify-between p-8 rounded-3xl bg-surface-container-low border border-outline-variant/20 shadow-lg hover:border-primary/40 transition-all duration-300">
               <div class="flex flex-col gap-5">
                 <div class="flex items-center gap-1 text-primary">
@@ -752,20 +715,15 @@
                   <span class="material-symbols-outlined text-lg">star</span>
                   <span class="material-symbols-outlined text-lg">star</span>
                 </div>
-                
                 <h3 class="font-headline-sm text-lg font-bold text-on-surface leading-snug">
                   “Aprendí que los resultados requieren tiempo y constancia.”
                 </h3>
-
                 <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
                   “Lo que más valoro es el acompañamiento. Cuando tenía dudas podía preguntarle y hacer ajustes sin sentir que estaba sola en el proceso. Hoy me siento más fuerte, más segura y mucho más disciplinada.”
                 </p>
               </div>
-
               <div class="flex items-center gap-3 pt-6 mt-6 border-t border-outline-variant/15">
-                <div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary font-bold text-sm">
-                  V
-                </div>
+                <div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary font-bold text-sm">V</div>
                 <div class="flex flex-col">
                   <span class="font-headline-sm text-sm font-semibold text-on-surface">Alumna verificada</span>
                   <span class="font-label-sm text-xs text-primary">Alumna de Maye Torres Fit</span>
@@ -775,7 +733,6 @@
 
           </div>
 
-          <!-- Banner: TU PROCESO TAMBIÉN PUEDE EMPEZAR AQUÍ -->
           <div class="mt-16 p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-surface-container-low via-surface-container to-surface-container-low border border-outline-variant/20 text-center flex flex-col items-center gap-4">
             <span class="font-label-caps text-label-caps uppercase tracking-widest text-primary font-bold">Tu momento es ahora</span>
             <h3 class="font-headline-lg text-2xl sm:text-3xl font-bold text-on-surface">
@@ -793,6 +750,7 @@
             </a>
           </div>
         </section>
+
         <!-- 7. SECCIÓN RESEÑAS Y COMENTARIOS -->
         <section id="comentarios" class="w-full py-24 px-margin-mobile lg:px-margin max-w-7xl mx-auto relative">
           <div class="flex flex-col items-center text-center max-w-3xl mx-auto gap-space-sm mb-16">
@@ -810,7 +768,6 @@
 
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
             
-            <!-- Formulario de Reseña -->
             <div class="lg:col-span-5 p-8 rounded-3xl bg-surface-container-low border border-outline-variant/20 shadow-xl">
               <div class="flex items-center gap-3 mb-6">
                 <div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary">
@@ -855,15 +812,11 @@
               </form>
             </div>
 
-            <!-- Muro de Reseñas -->
             <div class="lg:col-span-7 flex flex-col gap-4" id="reviews-wall">
-              
               <div class="p-6 rounded-2xl bg-surface-container-low border border-outline-variant/15 flex flex-col gap-3">
                 <div class="flex items-center justify-between">
                   <div class="flex items-center gap-3">
-                    <div class="w-9 h-9 rounded-full bg-primary-container/30 text-primary flex items-center justify-center font-bold text-xs">
-                      LR
-                    </div>
+                    <div class="w-9 h-9 rounded-full bg-primary-container/30 text-primary flex items-center justify-center font-bold text-xs">LR</div>
                     <div>
                       <h4 class="font-headline-sm text-sm font-semibold text-on-surface">Lucía Rodríguez</h4>
                       <span class="font-label-sm text-xs text-on-surface-variant">Alumna activa · 4 meses</span>
@@ -885,9 +838,7 @@
               <div class="p-6 rounded-2xl bg-surface-container-low border border-outline-variant/15 flex flex-col gap-3">
                 <div class="flex items-center justify-between">
                   <div class="flex items-center gap-3">
-                    <div class="w-9 h-9 rounded-full bg-primary-container/30 text-primary flex items-center justify-center font-bold text-xs">
-                      DC
-                    </div>
+                    <div class="w-9 h-9 rounded-full bg-primary-container/30 text-primary flex items-center justify-center font-bold text-xs">DC</div>
                     <div>
                       <h4 class="font-headline-sm text-sm font-semibold text-on-surface">Daniela Castro</h4>
                       <span class="font-label-sm text-xs text-on-surface-variant">Alumna online · 6 meses</span>
@@ -905,12 +856,10 @@
                   "El mejor cambio que he hecho. Pasé de comer muy poco y hacer cardio interminable a entrenar fuerza de verdad y comer para nutrirme. Mis glúteos y piernas han cambiado completamente en 6 meses."
                 </p>
               </div>
-
             </div>
 
           </div>
         </section>
-
         <!-- 8. MANIFIESTO: MÁS QUE UN PLAN -->
         <section class="w-full py-20 px-margin-mobile lg:px-margin bg-surface-container-lowest relative overflow-hidden">
           <div class="max-w-6xl mx-auto">
@@ -934,7 +883,6 @@
                   </div>
                 </div>
 
-                <!-- Panel con credenciales y foto de estudio -->
                 <div class="w-full lg:w-80 flex flex-col items-center text-center p-8 rounded-2xl bg-surface-container-lowest/80 backdrop-blur-md border border-outline-variant/20 shadow-xl">
                   <img alt="Maye Torres Fit" class="w-24 h-24 rounded-full object-cover shadow-[0_0_24px_rgba(232,104,138,0.35)] mb-4" src="maye-studio.jpg" onerror="this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuAl6iM6_rVp74uc6M2v0gtL1cVSADklPLzLRakTReqSedtrBYILLMedDqECxxwZq0oxn2N992X887diCE0qVESC3LiZtG4Bwr2VST3XMKBzrRuJ0pTjf82lNIVDI8EL1HyTKLnuziYJCWMShIl3_of631mA0oE6jGWxDX8OEUk0yp5bm9Aa9mFIaqK-Qa4I8bfpZq-KslJmx8fFa4Qk5hyUJY5eUhzPskz8RxRKvXHu37-u5K92fdaXbyk_nMWvsuto-14'"/>
                   <span class="font-headline-sm text-headline-sm font-bold text-on-surface">Maye Torres</span>
@@ -1037,11 +985,11 @@
     </footer>
 
   </div><!-- Fin de #main-view -->
+
   <!-- ======================================================= -->
   <!-- VISTA 2: PANTALLA COMPLETA DE REGISTRO & CHECKOUT       -->
   <!-- ======================================================= -->
   <div id="checkout-view" class="hidden min-h-screen w-full bg-surface text-on-surface flex-col fade-transition">
-    <!-- Barra superior de navegación de Checkout -->
     <nav class="w-full border-b border-outline-variant/15 bg-surface/90 backdrop-blur-md py-4 px-margin-mobile lg:px-margin sticky top-0 z-30">
       <div class="max-w-6xl mx-auto flex items-center justify-between">
         <button type="button" onclick="returnToMainView()" class="inline-flex items-center gap-2 text-on-surface-variant hover:text-primary font-label-md text-sm font-semibold transition-colors">
@@ -1056,11 +1004,9 @@
       </div>
     </nav>
 
-    <!-- Contenido Central de Checkout -->
     <main class="flex-grow max-w-5xl mx-auto w-full py-10 lg:py-16 px-margin-mobile lg:px-margin">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
-        <!-- Columna Izquierda: Resumen del Plan Seleccionado (5 Columnas) -->
         <div class="lg:col-span-5 flex flex-col gap-6">
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container/40 text-primary font-label-caps text-xs uppercase tracking-widest self-start">
             <span class="material-symbols-outlined text-sm">assignment_turned_in</span>
@@ -1089,11 +1035,11 @@
             </div>
 
             <div class="p-4 rounded-2xl bg-surface-container border border-outline-variant/15 text-xs text-on-surface-variant leading-relaxed">
-              <strong class="text-on-surface">Paso obligatorio:</strong> Completa tu ficha de inscripción. Tus datos se enviarán de forma segura al servidor y serás redirigida al chat de WhatsApp para iniciar tu plan.
+              <strong class="text-on-surface">Paso obligatorio:</strong> Completa tu ficha de inscripción. Tus datos se guardarán de forma segura en tu base de datos de Supabase y serás redirigida al chat de WhatsApp con el mensaje oficial de inicio.
             </div>
           </div>
         </div>
-        <!-- Columna Derecha: Formulario de Registro (7 Columnas) -->
+
         <div class="lg:col-span-7 p-6 sm:p-8 rounded-3xl bg-surface-container-low border border-primary/40 shadow-2xl flex flex-col gap-6">
           <div class="flex items-center gap-3">
             <div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary">
@@ -1101,23 +1047,21 @@
             </div>
             <div>
               <h3 class="font-headline-sm text-lg font-bold text-on-surface">Ficha de Registro de Alumna</h3>
-              <p class="font-body-sm text-xs text-on-surface-variant">Ingresa tus datos obligatorios para guardarlos en el servidor</p>
+              <p class="font-body-sm text-xs text-on-surface-variant">Ingresa tus datos obligatorios para guardarlos en el sistema</p>
             </div>
           </div>
 
-          <!-- Mensaje de confirmación -->
           <div id="client-registration-success" class="hidden p-4 rounded-2xl bg-primary-container/20 border border-primary/50 text-primary text-sm flex flex-col gap-1">
             <div class="flex items-center gap-2 font-bold">
               <span class="material-symbols-outlined text-lg">check_circle</span>
-              <span>¡Registro guardado con éxito!</span>
+              <span>¡Registro guardado en Supabase con éxito!</span>
             </div>
             <p class="text-xs text-on-surface-variant">
-              Tus datos fueron registrados de forma segura y se está abriendo WhatsApp con tu consulta.
+              Tus datos quedaron almacenados de forma segura y se está abriendo WhatsApp con tu consulta.
             </p>
           </div>
 
           <form id="form-client-registration" onsubmit="handleClientRegistrationSubmit(event)" class="flex flex-col gap-4">
-            <!-- 1. Nombre -->
             <div class="flex flex-col gap-1.5">
               <label for="client-reg-name" class="font-label-sm text-xs text-on-surface-variant font-medium">Nombre completo *</label>
               <div class="relative">
@@ -1126,9 +1070,7 @@
               </div>
             </div>
 
-            <!-- Fila: Email & Teléfono -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <!-- 2. Email -->
               <div class="flex flex-col gap-1.5">
                 <label for="client-reg-email" class="font-label-sm text-xs text-on-surface-variant font-medium">Correo electrónico *</label>
                 <div class="relative">
@@ -1137,7 +1079,6 @@
                 </div>
               </div>
 
-              <!-- 3. Teléfono -->
               <div class="flex flex-col gap-1.5">
                 <label for="client-reg-phone" class="font-label-sm text-xs text-on-surface-variant font-medium">Teléfono / WhatsApp *</label>
                 <div class="relative">
@@ -1147,9 +1088,7 @@
               </div>
             </div>
 
-            <!-- Fila: Peso actual & Objetivo -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <!-- 4. Peso actual -->
               <div class="flex flex-col gap-1.5">
                 <label for="client-reg-weight" class="font-label-sm text-xs text-on-surface-variant font-medium">Peso actual (kg / lb) *</label>
                 <div class="relative">
@@ -1158,7 +1097,6 @@
                 </div>
               </div>
 
-              <!-- 5. Objetivo -->
               <div class="flex flex-col gap-1.5">
                 <label for="client-reg-goal" class="font-label-sm text-xs text-on-surface-variant font-medium">Objetivo *</label>
                 <div class="relative">
@@ -1175,7 +1113,6 @@
               </div>
             </div>
 
-            <!-- 6. Plan (Autocompletado) -->
             <div class="flex flex-col gap-1.5">
               <label for="client-reg-plan" class="font-label-sm text-xs text-on-surface-variant font-medium">Plan asignado *</label>
               <div class="relative">
@@ -1184,20 +1121,18 @@
               </div>
             </div>
 
-            <!-- Widget de Google reCAPTCHA -->
             <div class="flex flex-col items-center justify-center py-2 border-t border-outline-variant/15 mt-2">
               <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" data-callback="onRecaptchaSuccess" data-expired-callback="onRecaptchaExpired"></div>
               <span id="checkout-recaptcha-error" class="hidden text-error font-body-sm text-xs mt-2">Por favor completa la verificación de seguridad para continuar.</span>
             </div>
 
-            <!-- Botón de Envío -->
             <button type="submit" id="btn-submit-registration" class="w-full py-4 rounded-xl bg-primary-container text-on-primary-container font-headline-sm text-sm font-semibold tracking-wide shadow-[0_4px_20px_rgba(232,104,138,0.35)] hover:brightness-110 transition-all flex items-center justify-center gap-2.5">
               <span class="material-symbols-outlined text-xl">save</span>
               <span>Guardar registro y contactar a Maye por WhatsApp</span>
             </button>
 
             <span class="text-center font-body-sm text-[11px] text-on-surface-variant/70">
-              Tus datos se transmiten de forma cifrada y privada directamente al servidor.
+              Tus datos se guardan de forma privada en tu base de datos de Supabase y se abrirá WhatsApp con el mensaje oficial del plan.
             </span>
           </form>
         </div>
@@ -1310,33 +1245,25 @@
 
     </div>
   </div>
+
   <!-- ======================================================= -->
-  <!-- SCRIPTS INTERACTIVOS (JAVASCRIPT) - PARTE FINAL         -->
+  <!-- SCRIPTS INTERACTIVOS (JAVASCRIPT) - PARTE 4A-1          -->
   <!-- ======================================================= -->
-    <script>
-    // =======================================================
-    // 1. CONFIGURACIÓN GENERAL, SUPABASE & MENSAJES WA
-    // =======================================================
+  <script>
     const GOOGLE_CLIENT_ID = "874423038065-p6t7bcndcat2q0v73tej8t2mn92hj6ho.apps.googleusercontent.com";
     const WA_PHONE = "51923659476";
-    const SUPABASE_URL = "https://eodqpqlkbshggoxjhoca.supabase.co";
-    const SUPABASE_ANON_KEY = "sb_publishable_lTLBCMxATZ44StbZQO0_GA_N5SGLBbF";
 
-    // Inicialización segura de Supabase con captura de errores
-    let supabaseClient = null;
-    try {
-      if (typeof window !== 'undefined' && window.supabase && typeof window.supabase.createClient === 'function') {
-        supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-      }
-    } catch (err) {
-      console.warn("Supabase no pudo inicializarse de inmediato:", err);
-    }
+    // Credenciales de Supabase
+    const SUPABASE_URL = "https://eodqpqlkbshggoxjhoca.supabase.co/rest/v1";
+    const SUPABASE_ANON_KEY = "sb_publishable_lTLBCMxATZ44StbZQO0_GA_N5SGLBbF";
 
     const WHATSAPP_MESSAGES = {
       "Entrenamiento Online": 
         "¡Hola Maye! Acabo de validar mi solicitud en tu web. Quiero comenzar con el plan *Entrenamiento Online (60$/mes)* para estructurar mis rutinas, progresar en mis cargas y mejorar mi técnica. ¿Cuáles son los siguientes pasos?",
+      
       "Nutrición + Entrenamiento": 
         "¡Hola Maye! Acabo de validar mi solicitud en la web y elegí el plan *Nutrición + Entrenamiento (85$/mes)*. Busco una transformación integral de mi composición corporal dentro y fuera del gym. ¿Cómo coordinamos la evaluación inicial?",
+      
       "Entrenamiento Presencial": 
         "¡Hola Maye! Acabo de validar mi solicitud en tu web para el plan *Entrenamiento Presencial (200$/mes)*. Quiero acompañamiento 1:1 en cada sesión para aprender técnica biomecánica en tiempo real. ¿Qué horarios tienes disponibles?"
     };
@@ -1345,128 +1272,134 @@
     let isRecaptchaVerified = false;
     let selectedRating = 5;
 
-    // =======================================================
-    // 2. NAVEGACIÓN Y ENVÍO SEGURO
-    // =======================================================
-    window.navigateToCheckout = function(packageName, packagePrice) {
+    const mainView = document.getElementById('main-view');
+    const checkoutView = document.getElementById('checkout-view');
+    const checkoutPkgName = document.getElementById('checkout-pkg-name');
+    const checkoutPkgPrice = document.getElementById('checkout-pkg-price');
+    const checkoutRecaptchaError = document.getElementById('checkout-recaptcha-error');
+    const clientRegPlanInput = document.getElementById('client-reg-plan');
+    const registrationSuccessMsg = document.getElementById('client-registration-success');
+
+    function navigateToCheckout(packageName, packagePrice) {
       selectedPackage = { name: packageName, price: packagePrice };
 
-      const nameEl = document.getElementById('checkout-pkg-name');
-      const priceEl = document.getElementById('checkout-pkg-price');
-      const planInput = document.getElementById('client-reg-plan');
-      const successMsg = document.getElementById('client-registration-success');
-      const recaptchaErr = document.getElementById('checkout-recaptcha-error');
-      const main = document.getElementById('main-view');
-      const checkout = document.getElementById('checkout-view');
+      if (checkoutPkgName) checkoutPkgName.textContent = packageName;
+      if (checkoutPkgPrice) checkoutPkgPrice.textContent = packagePrice;
+      if (clientRegPlanInput) clientRegPlanInput.value = `${packageName} (${packagePrice}/mes)`;
 
-      if (nameEl) nameEl.textContent = packageName;
-      if (priceEl) priceEl.textContent = packagePrice;
-      if (planInput) planInput.value = `${packageName} (${packagePrice}/mes)`;
-      if (successMsg) successMsg.classList.add('hidden');
-      if (recaptchaErr) recaptchaErr.classList.add('hidden');
+      if (registrationSuccessMsg) registrationSuccessMsg.classList.add('hidden');
 
       isRecaptchaVerified = false;
-      if (typeof grecaptcha !== 'undefined' && grecaptcha.reset) {
-        try { grecaptcha.reset(); } catch (e) {}
+      if (checkoutRecaptchaError) checkoutRecaptchaError.classList.add('hidden');
+      
+      if (typeof grecaptcha !== 'undefined') {
+        try { grecaptcha.reset(); } catch (err) {}
       }
 
-      if (main) main.classList.add('hidden');
-      if (checkout) {
-        checkout.classList.remove('hidden');
-        checkout.classList.add('flex');
+      if (mainView) mainView.classList.add('hidden');
+      if (checkoutView) {
+        checkoutView.classList.remove('hidden');
+        checkoutView.classList.add('flex');
       }
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
+    }
 
-    window.returnToMainView = function() {
-      const main = document.getElementById('main-view');
-      const checkout = document.getElementById('checkout-view');
-      if (checkout) {
-        checkout.classList.add('hidden');
-        checkout.classList.remove('flex');
+    function returnToMainView() {
+      if (checkoutView) {
+        checkoutView.classList.add('hidden');
+        checkoutView.classList.remove('flex');
       }
-      if (main) main.classList.remove('hidden');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
+      if (mainView) mainView.classList.remove('hidden');
 
-    window.onRecaptchaSuccess = function(token) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function onRecaptchaSuccess(token) {
       isRecaptchaVerified = true;
-      const err = document.getElementById('checkout-recaptcha-error');
-      if (err) err.classList.add('hidden');
-    };
+      if (checkoutRecaptchaError) checkoutRecaptchaError.classList.add('hidden');
+    }
 
-    window.onRecaptchaExpired = function() {
+    function onRecaptchaExpired() {
       isRecaptchaVerified = false;
-    };
-
-    window.handleClientRegistrationSubmit = async function(event) {
+    }
+  </script>
+  <script>
+    // Guarda los datos directamente en Supabase (tabla MayeTorresFit) y abre WhatsApp
+    async function handleClientRegistrationSubmit(event) {
       event.preventDefault();
 
-      const recaptchaErr = document.getElementById('checkout-recaptcha-error');
       if (!isRecaptchaVerified) {
-        if (recaptchaErr) recaptchaErr.classList.remove('hidden');
+        if (checkoutRecaptchaError) checkoutRecaptchaError.classList.remove('hidden');
         return;
       }
-      if (recaptchaErr) recaptchaErr.classList.add('hidden');
+
+      if (checkoutRecaptchaError) checkoutRecaptchaError.classList.add('hidden');
 
       const submitBtn = document.getElementById('btn-submit-registration');
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = `
-          <span class="material-symbols-outlined text-xl animate-spin">progress_activity</span>
-          <span>Guardando en servidor...</span>
-        `;
-      }
+      const originalBtnContent = submitBtn.innerHTML;
 
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `
+        <span class="material-symbols-outlined text-xl animate-spin">progress_activity</span>
+        <span>Guardando en el servidor...</span>
+      `;
+
+      // Payload adaptado exactamente a tus columnas de Supabase
       const payload = {
-        nombre: (document.getElementById('client-reg-name')?.value || '').trim(),
-        email: (document.getElementById('client-reg-email')?.value || '').trim(),
-        telefono: (document.getElementById('client-reg-phone')?.value || '').trim(),
-        peso_actual: (document.getElementById('client-reg-weight')?.value || '').trim(),
-        objetivo: document.getElementById('client-reg-goal')?.value || '',
-        plan: `${selectedPackage.name} (${selectedPackage.price}/mes)`
+        "Nombre": document.getElementById('client-reg-name').value.trim(),
+        "Email": document.getElementById('client-reg-email').value.trim(),
+        "Telefono": document.getElementById('client-reg-phone').value.trim(),
+        "Peso actual": document.getElementById('client-reg-weight').value.trim(),
+        "Objetivo": document.getElementById('client-reg-goal').value,
+        "Plan": `${selectedPackage.name} (${selectedPackage.price}/mes)`
       };
 
-      if (supabaseClient) {
-        try {
-          const { error } = await supabaseClient.from('MayeTorresFit').insert([payload]);
-          if (error) console.warn("Aviso en guardado Supabase:", error.message);
-        } catch (dbErr) {
-          console.error("Excepción en conexión Supabase:", dbErr);
+      try {
+        const response = await fetch(`${SUPABASE_URL}/MayeTorresFit`, {
+          method: "POST",
+          headers: {
+            "apikey": SUPABASE_ANON_KEY,
+            "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
+            "Content-Type": "application/json",
+            "Prefer": "return=minimal"
+          },
+          body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) {
+          const errData = await response.json();
+          throw new Error(errData.message || "Error al insertar en la base de datos");
         }
+
+        if (registrationSuccessMsg) {
+          registrationSuccessMsg.classList.remove('hidden');
+        }
+
+        const customMessage = WHATSAPP_MESSAGES[selectedPackage.name] || 
+          `¡Hola Maye! Quiero comenzar con el plan *${selectedPackage.name}* (${selectedPackage.price}). ¿Cuáles son los siguientes pasos?`;
+
+        const encodedText = encodeURIComponent(customMessage);
+        const finalWhatsappUrl = `https://api.whatsapp.com/send?phone=${WA_PHONE}&text=${encodedText}`;
+
+        setTimeout(() => {
+          window.location.href = finalWhatsappUrl;
+        }, 800);
+
+      } catch (error) {
+        console.error("Fallo al registrar en Supabase:", error);
+        alert("Ocurrió un error al guardar tu ficha. Verifica tu conexión e inténtalo nuevamente.");
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnContent;
       }
+    }
 
-      const successMsg = document.getElementById('client-registration-success');
-      if (successMsg) successMsg.classList.remove('hidden');
-
-      const form = document.getElementById('form-client-registration');
-      if (form) form.reset();
-
-      const customMessage = WHATSAPP_MESSAGES[selectedPackage.name] || 
-        `¡Hola Maye! Quiero comenzar con el plan *${selectedPackage.name}* (${selectedPackage.price}). ¿Cuáles son los siguientes pasos?`;
-      const finalWhatsappUrl = `https://api.whatsapp.com/send?phone=${WA_PHONE}&text=${encodeURIComponent(customMessage)}`;
-
-      setTimeout(() => {
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = `
-            <span class="material-symbols-outlined text-xl">save</span>
-            <span>Guardar registro y contactar a Maye por WhatsApp</span>
-          `;
-        }
-        window.location.href = finalWhatsappUrl;
-      }, 750);
-    };
-
-    // =======================================================
-    // 3. INICIO DE SESIÓN CON GOOGLE (OAUTH 2.0)
-    // =======================================================
+    // Google OAuth Login
     let googleTokenClient = null;
 
-    window.iniciarSesionGoogle = function() {
+    function iniciarSesionGoogle() {
       if (typeof google === 'undefined' || !google.accounts || !google.accounts.oauth2) {
-        alert("Los servicios de Google aún se están cargando. Espera un segundo y vuelve a presionar.");
+        alert("Los servicios de Google aún se están cargando. Espera 2 segundos y vuelve a presionar.");
         return;
       }
 
@@ -1477,6 +1410,7 @@
             scope: 'email profile openid',
             callback: async (tokenResponse) => {
               if (tokenResponse.error) {
+                console.error("Error devuelto por Google:", tokenResponse);
                 alert("Error de autenticación con Google: " + (tokenResponse.error_description || tokenResponse.error));
                 return;
               }
@@ -1487,6 +1421,7 @@
                     headers: { 'Authorization': `Bearer ${tokenResponse.access_token}` }
                   });
                   const userData = await res.json();
+
                   alert(`¡Bienvenida ${userData.name}! Has iniciado sesión con éxito.`);
                   closeAuthModal();
 
@@ -1499,21 +1434,25 @@
                   }
                 } catch (fetchError) {
                   console.error("Error al leer perfil:", fetchError);
+                  alert("No se pudo obtener la información de la cuenta.");
                 }
               }
             }
           });
         }
+
         googleTokenClient.requestAccessToken({ prompt: 'select_account' });
+
       } catch (err) {
+        console.error("Fallo al inicializar cliente de Google:", err);
         alert("Error al conectar con Google: " + err.message);
       }
-    };
+    }
 
-    // =======================================================
-    // 4. CONTROL DEL MODAL DE AUTENTICACIÓN
-    // =======================================================
+    // Control del modal de autenticación
     const authModal = document.getElementById('auth-modal');
+    const btnOpenLogin = document.getElementById('btn-open-login');
+    const closeAuthModalBtn = document.getElementById('close-auth-modal');
     const tabLogin = document.getElementById('tab-login');
     const tabRegister = document.getElementById('tab-register');
     const fieldName = document.getElementById('field-name');
@@ -1525,55 +1464,62 @@
     const authPasswordInput = document.getElementById('auth-password');
     const iconTogglePass = document.getElementById('icon-toggle-pass');
 
-    window.openAuthModal = function(mode = 'login') {
+    function openAuthModal(mode = 'login') {
       if (authModal) {
         authModal.classList.remove('hidden');
         authModal.classList.add('flex');
         setAuthMode(mode);
       }
-    };
+    }
 
-    window.closeAuthModal = function() {
+    function closeAuthModal() {
       if (authModal) {
         authModal.classList.add('hidden');
         authModal.classList.remove('flex');
       }
-    };
+    }
+
+    if (btnOpenLogin) {
+      btnOpenLogin.addEventListener('click', () => openAuthModal('login'));
+    }
+    if (closeAuthModalBtn) {
+      closeAuthModalBtn.addEventListener('click', closeAuthModal);
+    }
 
     function setAuthMode(mode) {
-      if (!tabRegister || !tabLogin) return;
       if (mode === 'register') {
         tabRegister.className = "py-2 rounded-full font-label-md text-label-sm font-semibold transition-all bg-primary-container text-on-primary-container shadow-sm";
         tabLogin.className = "py-2 rounded-full font-label-md text-label-sm font-semibold transition-all text-on-surface-variant hover:text-on-surface";
-        if (fieldName) { fieldName.classList.remove('hidden'); fieldName.classList.add('flex'); }
-        if (fieldMarketing) { fieldMarketing.classList.remove('hidden'); fieldMarketing.classList.add('flex'); }
-        if (linkForgotPass) linkForgotPass.classList.add('hidden');
-        if (authModalTitle) authModalTitle.textContent = "Crea tu cuenta";
-        if (authModalSubtitle) authModalSubtitle.textContent = "Regístrate para guardar tu proceso y recibir novedades";
-        if (btnAuthSubmit) btnAuthSubmit.textContent = "Crear cuenta";
+        
+        fieldName.classList.remove('hidden');
+        fieldName.classList.add('flex');
+        fieldMarketing.classList.remove('hidden');
+        fieldMarketing.classList.add('flex');
+        linkForgotPass.classList.add('hidden');
+
+        authModalTitle.textContent = "Crea tu cuenta";
+        authModalSubtitle.textContent = "Regístrate para guardar tu proceso y recibir novedades";
+        btnAuthSubmit.textContent = "Crear cuenta";
       } else {
         tabLogin.className = "py-2 rounded-full font-label-md text-label-sm font-semibold transition-all bg-primary-container text-on-primary-container shadow-sm";
         tabRegister.className = "py-2 rounded-full font-label-md text-label-sm font-semibold transition-all text-on-surface-variant hover:text-on-surface";
-        if (fieldName) { fieldName.classList.add('hidden'); fieldName.classList.remove('flex'); }
-        if (fieldMarketing) { fieldMarketing.classList.add('hidden'); fieldMarketing.classList.remove('flex'); }
-        if (linkForgotPass) linkForgotPass.classList.remove('hidden');
-        if (authModalTitle) authModalTitle.textContent = "Bienvenida de nuevo";
-        if (authModalSubtitle) authModalSubtitle.textContent = "Ingresa para acceder a tu área de entrenamiento";
-        if (btnAuthSubmit) btnAuthSubmit.textContent = "Iniciar sesión";
+
+        fieldName.classList.add('hidden');
+        fieldName.classList.remove('flex');
+        fieldMarketing.classList.add('hidden');
+        fieldMarketing.classList.remove('flex');
+        linkForgotPass.classList.remove('hidden');
+
+        authModalTitle.textContent = "Bienvenida de nuevo";
+        authModalSubtitle.textContent = "Ingresa para acceder a tu área de entrenamiento";
+        btnAuthSubmit.textContent = "Iniciar sesión";
       }
     }
-
-    const btnOpenLogin = document.getElementById('btn-open-login');
-    if (btnOpenLogin) btnOpenLogin.addEventListener('click', () => openAuthModal('login'));
-
-    const closeAuthModalBtn = document.getElementById('close-auth-modal');
-    if (closeAuthModalBtn) closeAuthModalBtn.addEventListener('click', closeAuthModal);
 
     if (tabLogin) tabLogin.addEventListener('click', () => setAuthMode('login'));
     if (tabRegister) tabRegister.addEventListener('click', () => setAuthMode('register'));
 
-    window.togglePasswordVisibility = function() {
-      if (!authPasswordInput || !iconTogglePass) return;
+    function togglePasswordVisibility() {
       if (authPasswordInput.type === 'password') {
         authPasswordInput.type = 'text';
         iconTogglePass.textContent = 'visibility_off';
@@ -1581,25 +1527,27 @@
         authPasswordInput.type = 'password';
         iconTogglePass.textContent = 'visibility';
       }
-    };
+    }
 
-    window.handleAuthSubmit = function(event) {
+    function handleAuthSubmit(event) {
       event.preventDefault();
-      const isRegister = fieldName && !fieldName.classList.contains('hidden');
-      const name = isRegister ? (document.getElementById('reg-name')?.value || '') : '';
-      alert(isRegister ? `¡Cuenta creada para ${name}!` : `¡Inicio de sesión exitoso!`);
-      closeAuthModal();
-    };
+      const isRegister = !fieldName.classList.contains('hidden');
+      const name = isRegister ? document.getElementById('reg-name').value : '';
 
-    // =======================================================
-    // 5. SISTEMA DE RESEÑAS
-    // =======================================================
+      alert(isRegister 
+        ? `¡Cuenta creada para ${name}!` 
+        : `¡Inicio de sesión exitoso!`);
+      
+      closeAuthModal();
+    }
+
+    // Sistema de Reseñas
     const starBtns = document.querySelectorAll('.star-btn');
     const ratingLabel = document.getElementById('rating-label');
 
     starBtns.forEach(btn => {
       btn.addEventListener('click', () => {
-        selectedRating = parseInt(btn.getAttribute('data-value')) || 5;
+        selectedRating = parseInt(btn.getAttribute('data-value'));
         if (ratingLabel) ratingLabel.textContent = `${selectedRating}.0 / 5`;
         updateStars(selectedRating);
       });
@@ -1618,10 +1566,10 @@
       });
     }
 
-    window.handleReviewSubmit = function(event) {
+    function handleReviewSubmit(event) {
       event.preventDefault();
-      const name = document.getElementById('review-name')?.value || 'Alumna';
-      const comment = document.getElementById('review-text')?.value || '';
+      const name = document.getElementById('review-name').value;
+      const comment = document.getElementById('review-text').value;
       const reviewsWall = document.getElementById('reviews-wall');
       const successMsg = document.getElementById('review-success');
 
@@ -1629,6 +1577,7 @@
       for (let i = 0; i < selectedRating; i++) {
         starsHtml += '<span class="material-symbols-outlined text-base">star</span>';
       }
+
       const initials = name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
 
       const newReview = document.createElement('div');
@@ -1644,33 +1593,31 @@
               <span class="font-label-sm text-xs text-primary font-medium">Alumna reciente</span>
             </div>
           </div>
-          <div class="flex items-center text-primary text-sm">${starsHtml}</div>
+          <div class="flex items-center text-primary text-sm">
+            ${starsHtml}
+          </div>
         </div>
-        <p class="font-body-sm text-sm text-on-surface-variant leading-relaxed">"${comment}"</p>
+        <p class="font-body-sm text-sm text-on-surface-variant leading-relaxed">
+          "${comment}"
+        </p>
       `;
 
       if (reviewsWall) reviewsWall.prepend(newReview);
+
       if (successMsg) {
         successMsg.classList.remove('hidden');
         setTimeout(() => successMsg.classList.add('hidden'), 5000);
       }
 
-      const revForm = document.getElementById('form-review');
-      if (revForm) revForm.reset();
+      document.getElementById('form-review').reset();
       updateStars(5);
       if (ratingLabel) ratingLabel.textContent = "5.0 / 5";
-    };
+    }
 
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeAuthModal();
     });
 
-    if (authModal) {
-      authModal.addEventListener('click', (e) => {
-        if (e.target === authModal) closeAuthModal();
-      });
-    }
-  </script>
     if (authModal) {
       authModal.addEventListener('click', (e) => {
         if (e.target === authModal) closeAuthModal();
