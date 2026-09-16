@@ -17,6 +17,9 @@
   <!-- SDK Oficial de Google Identity Services (OAuth) -->
   <script src="https://accounts.google.com/gsi/client" async defer></script>
 
+  <!-- SDK Oficial de Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
   <style>
     @layer base {
       html, body { 
@@ -192,7 +195,6 @@
     <!-- MAIN WRAPPER -->
     <main class="w-full pt-20 bg-surface flex-grow">
       <div class="flex flex-col w-full text-on-surface overflow-x-hidden">
-
         <!-- 1. HERO SECTION -->
         <section id="inicio" class="relative w-full py-space-xl lg:py-28 px-margin-mobile lg:px-margin max-w-7xl mx-auto">
           <div class="absolute -top-12 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
@@ -504,9 +506,7 @@
             </div>
           </div>
         </section>
-        <!-- --------------------------------------------------- -->
-        <!-- 5. SECCIÓN PAQUETES Y PRODUCTOS                     -->
-        <!-- --------------------------------------------------- -->
+        <!-- 5. SECCIÓN PAQUETES Y PRODUCTOS -->
         <section id="paquetes" class="w-full py-24 px-margin-mobile lg:px-margin max-w-7xl mx-auto relative">
           <div class="flex flex-col items-center text-center max-w-3xl mx-auto gap-space-sm mb-16">
             <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-secondary-container/40 text-primary font-label-caps text-label-caps uppercase tracking-widest">
@@ -654,9 +654,7 @@
           </div>
         </section>
 
-        <!-- --------------------------------------------------- -->
-        <!-- 6. SECCIÓN TESTIMONIOS                              -->
-        <!-- --------------------------------------------------- -->
+        <!-- 6. SECCIÓN TESTIMONIOS -->
         <section id="testimonios" class="w-full py-24 px-margin-mobile lg:px-margin max-w-7xl mx-auto relative">
           <!-- Auras ambientales -->
           <div class="absolute top-1/2 -left-20 w-80 h-80 bg-primary/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
@@ -795,9 +793,7 @@
             </a>
           </div>
         </section>
-        <!-- --------------------------------------------------- -->
-        <!-- 7. SECCIÓN RESEÑAS Y COMENTARIOS                    -->
-        <!-- --------------------------------------------------- -->
+        <!-- 7. SECCIÓN RESEÑAS Y COMENTARIOS -->
         <section id="comentarios" class="w-full py-24 px-margin-mobile lg:px-margin max-w-7xl mx-auto relative">
           <div class="flex flex-col items-center text-center max-w-3xl mx-auto gap-space-sm mb-16">
             <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-secondary-container/40 text-primary font-label-caps text-label-caps uppercase tracking-widest">
@@ -827,13 +823,11 @@
               </div>
 
               <form id="form-review" onsubmit="handleReviewSubmit(event)" class="flex flex-col gap-4">
-                <!-- Nombre -->
                 <div class="flex flex-col gap-1.5">
                   <label for="review-name" class="font-label-sm text-xs text-on-surface-variant font-medium">Tu nombre completo</label>
                   <input type="text" id="review-name" required placeholder="Ej. Camila Silva" class="w-full bg-surface-container px-4 py-3 rounded-xl border border-outline-variant/40 focus:border-primary text-on-surface font-body-sm text-sm focus:outline-none transition-colors">
                 </div>
 
-                <!-- Selector de Estrellas -->
                 <div class="flex flex-col gap-1.5">
                   <label class="font-label-sm text-xs text-on-surface-variant font-medium">Tu calificación</label>
                   <div class="flex items-center gap-1 text-outline hover:text-primary cursor-pointer" id="star-rating-container">
@@ -846,13 +840,11 @@
                   </div>
                 </div>
 
-                <!-- Comentario -->
                 <div class="flex flex-col gap-1.5">
                   <label for="review-text" class="font-label-sm text-xs text-on-surface-variant font-medium">Cuéntanos sobre tu proceso</label>
                   <textarea id="review-text" rows="4" required placeholder="¿Cómo ha sido tu experiencia con las rutinas, la técnica y los resultados?" class="w-full bg-surface-container px-4 py-3 rounded-xl border border-outline-variant/40 focus:border-primary text-on-surface font-body-sm text-sm focus:outline-none transition-colors resize-none"></textarea>
                 </div>
 
-                <!-- Mensaje de éxito -->
                 <div id="review-success" class="hidden p-3 rounded-xl bg-primary-container/20 border border-primary/40 text-primary text-xs text-center font-medium">
                   ¡Gracias por tu reseña! Ha sido enviada con éxito.
                 </div>
@@ -919,9 +911,7 @@
           </div>
         </section>
 
-        <!-- --------------------------------------------------- -->
-        <!-- 8. MANIFIESTO: MÁS QUE UN PLAN                      -->
-        <!-- --------------------------------------------------- -->
+        <!-- 8. MANIFIESTO: MÁS QUE UN PLAN -->
         <section class="w-full py-20 px-margin-mobile lg:px-margin bg-surface-container-lowest relative overflow-hidden">
           <div class="max-w-6xl mx-auto">
             <div class="relative p-8 sm:p-14 lg:p-20 rounded-3xl bg-gradient-to-b from-surface-container to-surface-container-low shadow-2xl border border-outline-variant/15">
@@ -966,9 +956,7 @@
           </div>
         </section>
 
-        <!-- --------------------------------------------------- -->
-        <!-- 9. SECCIÓN FINAL DE CONVERSIÓN (CTA)                -->
-        <!-- --------------------------------------------------- -->
+        <!-- 9. SECCIÓN FINAL DE CONVERSIÓN (CTA) -->
         <section class="w-full py-28 px-margin-mobile lg:px-margin relative" id="empezar">
           <div class="absolute inset-x-0 top-1/2 -translate-y-1/2 mx-auto w-3/4 max-w-2xl h-80 bg-primary/15 rounded-full blur-[100px] pointer-events-none"></div>
           
@@ -1021,7 +1009,6 @@
           </p>
         </div>
 
-        <!-- Enlace de Instagram Oficial -->
         <div class="flex items-center gap-space-lg">
           <a class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="https://www.instagram.com/mayetorresfit?stkn=bzJ4ZXh0Y2d2NGNi" rel="noopener noreferrer" target="_blank">
             <span class="material-symbols-outlined">photo_camera</span>
@@ -1102,12 +1089,11 @@
             </div>
 
             <div class="p-4 rounded-2xl bg-surface-container border border-outline-variant/15 text-xs text-on-surface-variant leading-relaxed">
-              <strong class="text-on-surface">Paso obligatorio:</strong> Completa tu ficha de inscripción. Tus datos se guardarán en el registro local de la página y serás redirigida al chat de WhatsApp con el mensaje oficial de inicio.
+              <strong class="text-on-surface">Paso obligatorio:</strong> Completa tu ficha de inscripción. Tus datos se enviarán de forma segura al servidor y serás redirigida al chat de WhatsApp para iniciar tu plan.
             </div>
           </div>
         </div>
-
-        <!-- Columna Derecha: Formulario Obligatorio de Registro (7 Columnas) -->
+        <!-- Columna Derecha: Formulario de Registro (7 Columnas) -->
         <div class="lg:col-span-7 p-6 sm:p-8 rounded-3xl bg-surface-container-low border border-primary/40 shadow-2xl flex flex-col gap-6">
           <div class="flex items-center gap-3">
             <div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary">
@@ -1115,7 +1101,7 @@
             </div>
             <div>
               <h3 class="font-headline-sm text-lg font-bold text-on-surface">Ficha de Registro de Alumna</h3>
-              <p class="font-body-sm text-xs text-on-surface-variant">Ingresa tus datos obligatorios para guardarlos en el registro</p>
+              <p class="font-body-sm text-xs text-on-surface-variant">Ingresa tus datos obligatorios para guardarlos en el servidor</p>
             </div>
           </div>
 
@@ -1123,10 +1109,10 @@
           <div id="client-registration-success" class="hidden p-4 rounded-2xl bg-primary-container/20 border border-primary/50 text-primary text-sm flex flex-col gap-1">
             <div class="flex items-center gap-2 font-bold">
               <span class="material-symbols-outlined text-lg">check_circle</span>
-              <span>¡Registro guardado en la página con éxito!</span>
+              <span>¡Registro guardado con éxito!</span>
             </div>
             <p class="text-xs text-on-surface-variant">
-              Tus datos quedaron almacenados localmente y se está abriendo WhatsApp con tu consulta.
+              Tus datos fueron registrados de forma segura y se está abriendo WhatsApp con tu consulta.
             </p>
           </div>
 
@@ -1211,53 +1197,14 @@
             </button>
 
             <span class="text-center font-body-sm text-[11px] text-on-surface-variant/70">
-              Tus datos se registran en el almacenamiento local de la página y se abrirá WhatsApp con el mensaje oficial del plan.
+              Tus datos se transmiten de forma cifrada y privada directamente al servidor.
             </span>
           </form>
         </div>
 
       </div>
-      <!-- SECCIÓN DE REGISTRO DE DATOS DENTRO DE LA PÁGINA -->
-      <div class="mt-14 p-6 sm:p-8 rounded-3xl bg-surface-container-low border border-outline-variant/20 shadow-xl flex flex-col gap-6">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-outline-variant/15">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary">
-              <span class="material-symbols-outlined text-xl">database</span>
-            </div>
-            <div>
-              <h3 class="font-headline-sm text-lg font-bold text-on-surface">Registro de Datos de Alumnas</h3>
-              <p class="font-body-sm text-xs text-on-surface-variant">Historial almacenado localmente en esta página</p>
-            </div>
-          </div>
-          <button type="button" onclick="limpiarRegistros()" class="self-start sm:self-auto text-xs text-error hover:underline flex items-center gap-1">
-            <span class="material-symbols-outlined text-sm">delete</span>
-            <span>Limpiar registros</span>
-          </button>
-        </div>
-
-        <div class="overflow-x-auto">
-          <table class="w-full text-left text-xs text-on-surface-variant">
-            <thead class="bg-surface-container text-on-surface uppercase font-label-caps tracking-wider border-b border-outline-variant/20">
-              <tr>
-                <th class="py-3 px-4">Fecha</th>
-                <th class="py-3 px-4">Nombre</th>
-                <th class="py-3 px-4">Email</th>
-                <th class="py-3 px-4">Teléfono</th>
-                <th class="py-3 px-4">Peso</th>
-                <th class="py-3 px-4">Objetivo</th>
-                <th class="py-3 px-4">Plan</th>
-              </tr>
-            </thead>
-            <tbody id="clients-records-table-body" class="divide-y divide-outline-variant/10">
-              <!-- Filas generadas dinámicamente -->
-            </tbody>
-          </table>
-        </div>
-      </div>
-
     </main>
   </div><!-- Fin de #checkout-view -->
-
   <!-- ======================================================= -->
   <!-- MODAL DE AUTENTICACIÓN (LOGIN & REGISTRO)               -->
   <!-- ======================================================= -->
@@ -1368,10 +1315,15 @@
   <!-- ======================================================= -->
   <script>
     // =======================================================
-    // 1. CONFIGURACIÓN GENERAL & MENSAJES ORIGINALES DE WA
+    // 1. CONFIGURACIÓN GENERAL, SUPABASE & MENSAJES WA
     // =======================================================
     const GOOGLE_CLIENT_ID = "874423038065-p6t7bcndcat2q0v73tej8t2mn92hj6ho.apps.googleusercontent.com";
     const WA_PHONE = "51923659476";
+
+    // Inicialización del cliente Supabase
+    const SUPABASE_URL = "https://eodqpqlkbshggoxjhoca.supabase.co";
+    const SUPABASE_ANON_KEY = "sb_publishable_lTLBCMxATZ44StbZQO0_GA_N5SGLBbF"; // Tu clave de Supabase sb_publishable...
+    const supabase = window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
 
     const WHATSAPP_MESSAGES = {
       "Entrenamiento Online": 
@@ -1389,7 +1341,7 @@
     let selectedRating = 5;
 
     // =======================================================
-    // 2. NAVEGACIÓN, REGISTRO LOCAL Y REDIRECCIÓN A WHATSAPP
+    // 2. NAVEGACIÓN Y ENVÍO SEGURO A SUPABASE
     // =======================================================
     const mainView = document.getElementById('main-view');
     const checkoutView = document.getElementById('checkout-view');
@@ -1398,7 +1350,6 @@
     const checkoutRecaptchaError = document.getElementById('checkout-recaptcha-error');
     const clientRegPlanInput = document.getElementById('client-reg-plan');
     const registrationSuccessMsg = document.getElementById('client-registration-success');
-    const recordsTableBody = document.getElementById('clients-records-table-body');
 
     function navigateToCheckout(packageName, packagePrice) {
       selectedPackage = { name: packageName, price: packagePrice };
@@ -1422,7 +1373,6 @@
         checkoutView.classList.add('flex');
       }
 
-      renderClientsTable();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -1445,8 +1395,8 @@
       isRecaptchaVerified = false;
     }
 
-    // Guarda los datos en localStorage y abre WhatsApp con el mensaje original limpio
-    function handleClientRegistrationSubmit(event) {
+    // Guarda los datos exclusivamente en el servidor (Supabase) sin mostrarlos públicamente
+    async function handleClientRegistrationSubmit(event) {
       event.preventDefault();
 
       if (!isRecaptchaVerified) {
@@ -1456,85 +1406,67 @@
 
       if (checkoutRecaptchaError) checkoutRecaptchaError.classList.add('hidden');
 
+      const submitBtn = document.getElementById('btn-submit-registration');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `
+          <span class="material-symbols-outlined text-xl animate-spin">progress_activity</span>
+          <span>Guardando en servidor...</span>
+        `;
+      }
+
       // 1. Extracción de los datos obligatorios del cliente
-      const nuevoRegistro = {
+      const payload = {
         nombre: document.getElementById('client-reg-name').value.trim(),
         email: document.getElementById('client-reg-email').value.trim(),
         telefono: document.getElementById('client-reg-phone').value.trim(),
-        pesoActual: document.getElementById('client-reg-weight').value.trim(),
+        peso_actual: document.getElementById('client-reg-weight').value.trim(),
         objetivo: document.getElementById('client-reg-goal').value,
-        plan: `${selectedPackage.name} (${selectedPackage.price}/mes)`,
-        fecha: new Date().toLocaleDateString('es-ES', { 
-          year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' 
-        })
+        plan: `${selectedPackage.name} (${selectedPackage.price}/mes)`
       };
 
-      // 2. Guardar en el almacenamiento local (localStorage) de la página
-      try {
-        const registros = JSON.parse(localStorage.getItem('maye_fit_registros_locales') || '[]');
-        registros.unshift(nuevoRegistro);
-        localStorage.setItem('maye_fit_registros_locales', JSON.stringify(registros));
-      } catch (err) {
-        console.warn("No se pudo escribir en el almacenamiento local:", err);
+      // 2. Guardar exclusivamente en el servidor de base de datos Supabase
+      if (supabase) {
+        try {
+          const { error } = await supabase
+            .from('MayeTorresFit')
+            .insert([payload]);
+
+          if (error) {
+            console.error("Error al registrar en Supabase:", error);
+            alert("Aviso: Hubo un inconveniente al guardar en el servidor (" + error.message + "), pero serás redirigida a WhatsApp para asegurar tu cupo.");
+          }
+        } catch (dbErr) {
+          console.error("Excepción en conexión Supabase:", dbErr);
+        }
       }
 
-      // 3. Notificación de éxito y actualización de la tabla visible
+      // 3. Notificación de confirmación privada (sin listar datos de otros)
       if (registrationSuccessMsg) {
         registrationSuccessMsg.classList.remove('hidden');
       }
-      renderClientsTable();
 
-      // 4. Preparación del mensaje predeterminado original (sin datos personales en el chat)
+      // Limpiar el formulario
+      document.getElementById('form-client-registration').reset();
+
+      // 4. Preparación del mensaje predeterminado para WhatsApp
       const customMessage = WHATSAPP_MESSAGES[selectedPackage.name] || 
         `¡Hola Maye! Quiero comenzar con el plan *${selectedPackage.name}* (${selectedPackage.price}). ¿Cuáles son los siguientes pasos?`;
 
       const encodedText = encodeURIComponent(customMessage);
       const finalWhatsappUrl = `https://api.whatsapp.com/send?phone=${WA_PHONE}&text=${encodedText}`;
 
-      // 5. Redirección a WhatsApp conservando el flujo oficial
+      // 5. Redirección a WhatsApp
       setTimeout(() => {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = `
+            <span class="material-symbols-outlined text-xl">save</span>
+            <span>Guardar registro y contactar a Maye por WhatsApp</span>
+          `;
+        }
         window.location.href = finalWhatsappUrl;
       }, 750);
-    }
-
-    // Renderiza los registros en la tabla dentro de la página
-    function renderClientsTable() {
-      if (!recordsTableBody) return;
-
-      let registros = [];
-      try {
-        registros = JSON.parse(localStorage.getItem('maye_fit_registros_locales') || '[]');
-      } catch (e) {
-        registros = [];
-      }
-
-      if (registros.length === 0) {
-        recordsTableBody.innerHTML = `
-          <tr>
-            <td colspan="7" class="py-6 text-center text-outline italic">No hay registros almacenados todavía. Los planes seleccionados aparecerán aquí.</td>
-          </tr>
-        `;
-        return;
-      }
-
-      recordsTableBody.innerHTML = registros.map(item => `
-        <tr class="hover:bg-surface-container/50 transition-colors">
-          <td class="py-3 px-4 text-on-surface whitespace-nowrap">${item.fecha}</td>
-          <td class="py-3 px-4 font-semibold text-on-surface">${item.nombre}</td>
-          <td class="py-3 px-4">${item.email}</td>
-          <td class="py-3 px-4">${item.telefono}</td>
-          <td class="py-3 px-4">${item.pesoActual}</td>
-          <td class="py-3 px-4">${item.objetivo}</td>
-          <td class="py-3 px-4 text-primary font-semibold">${item.plan}</td>
-        </tr>
-      `).join('');
-    }
-
-    function limpiarRegistros() {
-      if (confirm("¿Segura que deseas vaciar el registro de datos guardados en la página?")) {
-        localStorage.removeItem('maye_fit_registros_locales');
-        renderClientsTable();
-      }
     }
 
     // =======================================================
@@ -1762,11 +1694,6 @@
       updateStars(5);
       if (ratingLabel) ratingLabel.textContent = "5.0 / 5";
     }
-
-    // Inicialización al cargar la página
-    window.addEventListener('DOMContentLoaded', () => {
-      renderClientsTable();
-    });
 
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeAuthModal();
