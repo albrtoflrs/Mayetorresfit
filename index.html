@@ -1280,7 +1280,7 @@
     const clientRegPlanInput = document.getElementById('client-reg-plan');
     const registrationSuccessMsg = document.getElementById('client-registration-success');
 
-    function navigateToCheckout(packageName, packagePrice) {
+        function navigateToCheckout(packageName, packagePrice) {
       selectedPackage = { name: packageName, price: packagePrice };
 
       if (checkoutPkgName) checkoutPkgName.textContent = packageName;
@@ -1291,11 +1291,8 @@
 
       isRecaptchaVerified = false;
       if (checkoutRecaptchaError) checkoutRecaptchaError.classList.add('hidden');
-      
-      if (typeof grecaptcha !== 'undefined') {
-        try { grecaptcha.reset(); } catch (err) {}
-      }
 
+      // 1. Mostrar la vista primero para evitar el bug del contenedor oculto
       if (mainView) mainView.classList.add('hidden');
       if (checkoutView) {
         checkoutView.classList.remove('hidden');
@@ -1303,6 +1300,13 @@
       }
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // 2. Resetear el captcha una vez que el DOM ya es visible
+      setTimeout(() => {
+        if (typeof grecaptcha !== 'undefined') {
+          try { grecaptcha.reset(); } catch (err) {}
+        }
+      }, 150);
     }
 
     function returnToMainView() {
@@ -1325,7 +1329,7 @@
     }
   </script>
   <script>
-    // Guarda los datos directamente en Supabase (tabla MayeTorresFit) y abre WhatsApp
+    // Guarda los datos en Supabase, dispara n8n (Resend) y abre WhatsApp
     async function handleClientRegistrationSubmit(event) {
       event.preventDefault();
 
@@ -1345,7 +1349,7 @@
         <span>Guardando en el servidor...</span>
       `;
 
-      // Payload adaptado exactamente a tus columnas de Supabase
+      // Payload adaptado a tus columnas de Supabase
       const payload = {
         "Nombre": document.getElementById('client-reg-name').value.trim(),
         "Email": document.getElementById('client-reg-email').value.trim(),
@@ -1356,6 +1360,7 @@
       };
 
       try {
+        // 1. Guardar en Supabase
         const response = await fetch(`${SUPABASE_URL}/MayeTorresFit`, {
           method: "POST",
           headers: {
@@ -1366,6 +1371,13 @@
           },
           body: JSON.stringify(payload)
         });
+
+        // 2. Disparar directamente tu webhook de n8n para enviar el correo con Resend
+        fetch("https://flowersevolution.app.n8n.cloud/webhook/Clientsupabase", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        }).catch(err => console.error("Error al notificar n8n:", err));
 
         if (!response.ok) {
           const errData = await response.json();
